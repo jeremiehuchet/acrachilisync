@@ -1,0 +1,99 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>acrachilisync-parent</artifactId>
+        <groupId>fr.dudie</groupId>
+        <version>0.1-SNAPSHOT</version>
+	<relativePath>../acrachilisync-parent</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>fr.dudie</groupId>
+    <artifactId>acrachilisync-core</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>acrachilisync-core</name>
+    <url>http://bugtracker.dudie.fr/projects/acrachilisync</url>
+
+    <issueManagement>
+        <system>Redmine</system>
+        <url>http://bugtracker.dudie.fr/projects/acrachilisync/issues</url>
+    </issueManagement>
+    <scm>
+        <url>git://github.com/kops/acrachilisync.git</url>
+    </scm>
+
+    <properties>
+        <junit.version>4.8.2</junit.version>
+        <slf4j.version>1.6.1</slf4j.version>
+        <redmine-api.version>1.2.0</redmine-api.version>
+    </properties>
+
+    <repositories>
+        <repository>
+	  <!-- This repository provides packages for gdata libs -->
+            <id>mandubian-mvn</id>
+            <url>http://mandubian-mvn.googlecode.com/svn/trunk/mandubian-mvn/repository</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.redmine.ta</groupId>
+            <artifactId>redmine-api</artifactId>
+            <version>${redmine-api.version}</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.gdata</groupId>
+            <artifactId>gdata-docs-3.0</artifactId>
+            <version>1.41.5</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+        	<groupId>javax.mail</groupId>
+        	<artifactId>mail</artifactId>
+        	<version>1.4.1</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>
+        <dependency>
+        	<groupId>commons-collections</groupId>
+        	<artifactId>commons-collections</artifactId>
+        	<version>3.2.1</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>
+	
+	
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
+            <type>jar</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+        	<groupId>commons-lang</groupId>
+        	<artifactId>commons-lang</artifactId>
+        	<version>2.6</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>
+    </dependencies>
+</project>

@@ -1,0 +1,14 @@
+|_. ACRA report id|_. date|
+|cccf8749-35f0-4d4d-a82e-32fce50e9c1b|24/02/2011 09:23:02|
+
+|cccf8749-35f0-4d4d-a82e-32fce50e9c1b|24/02/2011 21:43:29|
+|cccf8749-35f0-4d4d-a82e-32fce50e9c1b|24/02/2011 12:54:51|
+
+*Stacktrace*
+<pre class="javastacktrace">java.lang.NoClassDefFoundError: javax/mail/MessagingException
+    at fr.dudie.acrachilisync.TestGdocsApi.listAllDocuments(TestGdocsApi.java:30)
+    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+Caused by: java.lang.ClassNotFoundException: javax.mail.MessagingException
+    at java.net.URLClassLoader$1.run(URLClassLoader.java:202)
+    at java.lang.ClassLoader.loadClass(ClassLoader.java:247)
+    ... 24 more</pre>
