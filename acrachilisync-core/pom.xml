@@ -33,7 +33,10 @@
     <repositories>
         <repository>
 	  <!-- This repository provides packages for gdata libs -->
-            <id>mandubian-mvn</id>
+        	<releases>
+        		<updatePolicy>daily</updatePolicy>
+        	</releases>
+        	<id>mandubian-mvn</id>
             <url>http://mandubian-mvn.googlecode.com/svn/trunk/mandubian-mvn/repository</url>
         </repository>
     </repositories>
@@ -92,6 +95,13 @@
         	<groupId>commons-lang</groupId>
         	<artifactId>commons-lang</artifactId>
         	<version>2.6</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>
+        <dependency>
+        	<groupId>commons-configuration</groupId>
+        	<artifactId>commons-configuration</artifactId>
+        	<version>1.6</version>
         	<type>jar</type>
         	<scope>compile</scope>
         </dependency>

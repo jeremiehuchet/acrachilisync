@@ -59,15 +59,15 @@ public final class AcraToChiliprojectSyncHandler implements AcraReportHandler {
         final Issue issue = new Issue();
 
         final Project project = new Project();
-        project.setId(ConfigurationManager.CHILIPROJECT_PROJECT_ID);
+        project.setId(ConfigurationManager.getInstance().CHILIPROJECT_PROJECT_ID);
         issue.setProject(project);
 
         final Tracker tracker = new Tracker();
-        tracker.setId(ConfigurationManager.CHILIPROJECT_TRACKER_ID);
+        tracker.setId(ConfigurationManager.getInstance().CHILIPROJECT_TRACKER_ID);
         issue.setTracker(tracker);
 
         final CustomField md5CustomField = new CustomField();
-        md5CustomField.setId(ConfigurationManager.CHILIPROJECT_STACKTRACE_MD5_CF_ID);
+        md5CustomField.setId(ConfigurationManager.getInstance().CHILIPROJECT_STACKTRACE_MD5_CF_ID);
         md5CustomField.setValue(pReport.getStacktraceMD5());
         issue.getCustomFields().add(md5CustomField);
 
@@ -81,7 +81,8 @@ public final class AcraToChiliprojectSyncHandler implements AcraReportHandler {
         issue.setDescription(description.build());
 
         try {
-            redmineClient.createIssue(String.valueOf(ConfigurationManager.CHILIPROJECT_PROJECT_ID),
+            redmineClient.createIssue(
+                    String.valueOf(ConfigurationManager.getInstance().CHILIPROJECT_PROJECT_ID),
                     issue);
         } catch (final Exception e) {
             pReport.setStatus(SyncStatus.FAILURE);

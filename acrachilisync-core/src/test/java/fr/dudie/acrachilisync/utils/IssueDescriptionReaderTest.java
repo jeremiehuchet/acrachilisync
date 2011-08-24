@@ -15,6 +15,9 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.configuration.ConfigurationException;
+import org.apache.commons.configuration.PropertiesConfiguration;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -37,6 +40,9 @@ public final class IssueDescriptionReaderTest {
     /** The event logger. */
     private static final Logger LOGGER = LoggerFactory.getLogger(IssueDescriptionReaderTest.class);
 
+    /** The test configuration. */
+    private static ConfigurationManager configuration;
+
     /** The test filename. */
     private final String filename;
 
@@ -48,6 +54,19 @@ public final class IssueDescriptionReaderTest {
 
     /** True if a parse exception is expected. */
     private final boolean expectParseException;
+
+    /**
+     * Load the application test configuration before the tests.
+     * 
+     * @throws ConfigurationException
+     *             the configuration cannot be loaded
+     */
+    @BeforeClass
+    public static void loadConfiguration() throws ConfigurationException {
+
+        configuration = ConfigurationManager.getInstance(new PropertiesConfiguration(
+                "acrachilisync.properties"));
+    }
 
     /**
      * Constructor.
@@ -131,7 +150,7 @@ public final class IssueDescriptionReaderTest {
         issue.setId(1);
         issue.setDescription(description);
         final CustomField stacktraceMD5 = new CustomField();
-        stacktraceMD5.setId(ConfigurationManager.CHILIPROJECT_STACKTRACE_MD5_CF_ID);
+        stacktraceMD5.setId(configuration.CHILIPROJECT_STACKTRACE_MD5_CF_ID);
         stacktraceMD5.setValue(stackMD5);
         issue.getCustomFields().add(stacktraceMD5);
 

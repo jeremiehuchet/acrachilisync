@@ -79,7 +79,7 @@ public final class IssueDescriptionReader {
      */
     private String getStacktraceMD5(final Issue pIssue) throws IssueParseException {
 
-        final int stackCfId = ConfigurationManager.CHILIPROJECT_STACKTRACE_MD5_CF_ID;
+        final int stackCfId = ConfigurationManager.getInstance().CHILIPROJECT_STACKTRACE_MD5_CF_ID;
         final Predicate findStacktraceMD5 = new CustomFieldIdPredicate(stackCfId);
         final CustomField field = (CustomField) CollectionUtils.find(pIssue.getCustomFields(),
                 findStacktraceMD5);

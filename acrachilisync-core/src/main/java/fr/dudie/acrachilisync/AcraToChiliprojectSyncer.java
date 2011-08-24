@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.configuration.Configuration;
 import org.redmine.ta.AuthenticationException;
 import org.redmine.ta.NotFoundException;
 import org.redmine.ta.RedmineException;
@@ -58,6 +59,8 @@ public final class AcraToChiliprojectSyncer {
     public static final String WORKSHEET_URL_FORMAT = "https://spreadsheets.google.com"
             + "/feeds/list/%s/%s/private/full?sq=stacktracemd5%%3D%%3D%%22%%22";
 
+    private final ConfigurationManager config;
+
     /** The Chiliproject client. */
     private final RedmineManager redmineClient;
 
@@ -73,19 +76,22 @@ public final class AcraToChiliprojectSyncer {
     /**
      * Constructor.
      * 
-     * @throws com.google.gdata.util.AuthenticationException
+     * @param pConfiguration
+     *            the configuration
      * @throws com.google.gdata.util.AuthenticationException
      */
-    public AcraToChiliprojectSyncer() throws com.google.gdata.util.AuthenticationException {
+    public AcraToChiliprojectSyncer(final Configuration pConfiguration)
+            throws com.google.gdata.util.AuthenticationException {
 
-        redmineClient = new RedmineManager(ConfigurationManager.CHILIPROJECT_HOST.toString(),
-                ConfigurationManager.CHILIPROJECT_API_KEY);
+        config = ConfigurationManager.getInstance(pConfiguration);
+
+        redmineClient = new RedmineManager(config.CHILIPROJECT_HOST.toString(),
+                config.CHILIPROJECT_API_KEY);
 
         client = new SpreadsheetService(APP_NAME);
-        client.setUserCredentials(ConfigurationManager.GOOGLE_LOGIN,
-                ConfigurationManager.GOOGLE_PASSWORD);
+        client.setUserCredentials(config.GOOGLE_LOGIN, config.GOOGLE_PASSWORD);
 
-        listFeedUrl = ConfigurationManager.SPREADSHEET_FEED_URL;
+        listFeedUrl = config.SPREADSHEET_FEED_URL;
 
         if (LOGGER.isInfoEnabled()) {
             LOGGER.info("spreadsheet list feed URL: {}", listFeedUrl);
@@ -214,9 +220,8 @@ public final class AcraToChiliprojectSyncer {
             AuthenticationException, NotFoundException, RedmineException {
 
         final Map<String, String> parameters = new HashMap<String, String>();
-        parameters.put("project_id", String.valueOf(ConfigurationManager.CHILIPROJECT_PROJECT_ID));
-        parameters.put(
-                String.format("cf_%d", ConfigurationManager.CHILIPROJECT_STACKTRACE_MD5_CF_ID),
+        parameters.put("project_id", String.valueOf(config.CHILIPROJECT_PROJECT_ID));
+        parameters.put(String.format("cf_%d", config.CHILIPROJECT_STACKTRACE_MD5_CF_ID),
                 pStacktraceMD5);
         final List<Issue> results = redmineClient.getIssues(parameters);
         Issue issue = null;
@@ -259,11 +264,11 @@ public final class AcraToChiliprojectSyncer {
             // add duplicate relation;
             final IssueRelation duplicate = new IssueRelation();
             duplicate.setIssueId(originalIssue.getId());
-            duplicate.setType(ConfigurationManager.CHILIPROJECT_RELATION_DUPLICATE_NAME);
+            duplicate.setType(config.CHILIPROJECT_RELATION_DUPLICATE_NAME);
             issue.getRelations().add(duplicate);
 
             // close issue
-            issue.setStatusId(ConfigurationManager.CHILIPROJECT_STATUS_CLOSED_ID);
+            issue.setStatusId(config.CHILIPROJECT_STATUS_CLOSED_ID);
 
             redmineClient.updateIssue(issue);
         }
