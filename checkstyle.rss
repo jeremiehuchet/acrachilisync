@@ -2,20 +2,20 @@
 
 <rss version="0.91">
   <channel>
-    <title>acrachilisync-cli - Checkstyle report</title>
-    <link>http://kops.github.com/acrachilisync/acrachilisync-cli</link>
-    <description>acrachilisync-cli - Checkstyle report</description>
+    <title>acrachilisync-core - Checkstyle report</title>
+    <link>http://kops.github.com/acrachilisync/acrachilisync-core</link>
+    <description>acrachilisync-core - Checkstyle report</description>
     <language>en-us</language>
     <copyright>&#169;2011</copyright>
     <item>
-      <title>File: 1,
+      <title>File: 17,
              Errors: 0,
-             Warnings: 11,
+             Warnings: 71,
              Infos: 0
       </title>
-            <link>http://kops.github.com/acrachilisync/acrachilisync-cli/checkstyle.html</link>
+            <link>http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html</link>
       <description>
-        <p>Click <a href="http://kops.github.com/acrachilisync/acrachilisync-cli/checkstyle.html">here</a> for the full Checkstyle report.</p>
+        <p>Click <a href="http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html">here</a> for the full Checkstyle report.</p>
 
         <table summary="Files" boder="1">
           <thead>
@@ -29,13 +29,237 @@
           <tbody>
                           <tr>
                 <td>
-                  <a href="http://kops.github.com/acrachilisync/acrachilisync-cli/checkstyle.html#fr.dudie.acrachilisync.AcraChiliSync.java">fr/dudie/acrachilisync/AcraChiliSync.java</a>
+                  <a href="http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html#fr.dudie.acrachilisync.utils.CustomFieldIdPredicate.java">fr/dudie/acrachilisync/utils/CustomFieldIdPredicate.java</a>
                 </td>
                 <td>
                   0
                 </td>
                 <td>
-                  11
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html#fr.dudie.acrachilisync.utils.IssueDescriptionUtils.java">fr/dudie/acrachilisync/utils/IssueDescriptionUtils.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  6
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html#fr.dudie.acrachilisync.exception.IssueParseException.java">fr/dudie/acrachilisync/exception/IssueParseException.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html#fr.dudie.acrachilisync.handler.AcraReportHandler.java">fr/dudie/acrachilisync/handler/AcraReportHandler.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  8
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html#fr.dudie.acrachilisync.utils.CreationDateIssueComparator.java">fr/dudie/acrachilisync/utils/CreationDateIssueComparator.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  4
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html#fr.dudie.acrachilisync.utils.IssueDescriptionBuilder.java">fr/dudie/acrachilisync/utils/IssueDescriptionBuilder.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html#fr.dudie.acrachilisync.utils.ChiliprojectUtils.java">fr/dudie/acrachilisync/utils/ChiliprojectUtils.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html#fr.dudie.acrachilisync.model.SyncStatus.java">fr/dudie/acrachilisync/model/SyncStatus.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html#fr.dudie.acrachilisync.AcraToChiliprojectSyncer.java">fr/dudie/acrachilisync/AcraToChiliprojectSyncer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  19
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html#fr.dudie.acrachilisync.model.EditableAcraReport.java">fr/dudie/acrachilisync/model/EditableAcraReport.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  2
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html#fr.dudie.acrachilisync.utils.ConfigurationManager.java">fr/dudie/acrachilisync/utils/ConfigurationManager.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  23
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html#fr.dudie.acrachilisync.utils.MD5Utils.java">fr/dudie/acrachilisync/utils/MD5Utils.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html#fr.dudie.acrachilisync.utils.IssueDescriptionReader.java">fr/dudie/acrachilisync/utils/IssueDescriptionReader.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html#fr.dudie.acrachilisync.handler.AcraToChiliprojectSyncHandler.java">fr/dudie/acrachilisync/handler/AcraToChiliprojectSyncHandler.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html#fr.dudie.acrachilisync.model.AcraReport.java">fr/dudie/acrachilisync/model/AcraReport.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  4
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html#fr.dudie.acrachilisync.model.AcraReportHeader.java">fr/dudie/acrachilisync/model/AcraReportHeader.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html#fr.dudie.acrachilisync.exception.SynchronizationException.java">fr/dudie/acrachilisync/exception/SynchronizationException.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
                 </td>
                 <td>
                   0
