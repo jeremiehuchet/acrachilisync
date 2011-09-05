@@ -65,7 +65,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
         <!-- Deploy the maven site to Github using Wagon GitSite. -->
         <site>
             <id>github-project-site</id>
-            <url>gitsite:git@github.com/kops/acrachilisync.git</url>
+            <url>file:/tmp/${project.groupId}/site</url>
         </site>
     </distributionManagement>
 
