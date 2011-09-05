@@ -1,0 +1,4 @@
+h1. AcraChiliSync 
+
+A tool to sync Acra GoogleDoc report with Redmine bug tracker.
+
