@@ -1,28 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>acrachilisync-parent</artifactId>
+        <artifactId>acrachilisync</artifactId>
         <groupId>fr.dudie</groupId>
-        <version>0.1-SNAPSHOT</version>
-        <relativePath>../acrachilisync-parent</relativePath>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>fr.dudie</groupId>
     <artifactId>acrachilisync-cli</artifactId>
-    <version>0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>acrachilisync-cli</name>
-    <url>http://bugtracker.dudie.fr/projects/acrachilisync</url>
-
-    <issueManagement>
-        <system>Redmine</system>
-        <url>http://bugtracker.dudie.fr/projects/acrachilisync/issues</url>
-    </issueManagement>
-    <scm>
-        <url>git://github.com/kops/acrachilisync.git</url>
-    </scm>
 
     <properties>
         <junit.version>4.8.2</junit.version>

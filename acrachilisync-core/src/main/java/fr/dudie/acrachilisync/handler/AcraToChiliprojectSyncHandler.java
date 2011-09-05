@@ -106,6 +106,7 @@ public final class AcraToChiliprojectSyncHandler implements AcraReportHandler {
     public void onKnownIssueAlreadySynchronized(final AcraReport pReport, final Issue pIssue)
             throws SynchronizationException {
 
+        pReport.setStatus(SyncStatus.SUCCESS);
     }
 
     /**

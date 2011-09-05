@@ -79,6 +79,7 @@ public final class AcraToChiliprojectSyncer {
      * @param pConfiguration
      *            the configuration
      * @throws com.google.gdata.util.AuthenticationException
+     *             invalid Google credentials
      */
     public AcraToChiliprojectSyncer(final Configuration pConfiguration)
             throws com.google.gdata.util.AuthenticationException {
@@ -168,14 +169,17 @@ public final class AcraToChiliprojectSyncer {
 
             try {
                 if (null == issue) {
+                    LOGGER.debug("Got a new bugreport");
                     for (final AcraReportHandler handler : reportHandlers) {
                         handler.onNewReport(report);
                     }
                 } else if (ChiliprojectUtils.isSynchronized(report, issue)) {
+                    LOGGER.debug("Got a bugreport already synchronized");
                     for (final AcraReportHandler handler : reportHandlers) {
                         handler.onKnownIssueAlreadySynchronized(report, issue);
                     }
                 } else {
+                    LOGGER.debug("Got a new bugreport with a stacktrace similar to an existing ticket");
                     for (final AcraReportHandler handler : reportHandlers) {
                         handler.onKnownIssueNotSynchronized(report, issue);
                     }

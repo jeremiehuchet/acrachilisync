@@ -1,28 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>acrachilisync-parent</artifactId>
+        <artifactId>acrachilisync</artifactId>
         <groupId>fr.dudie</groupId>
-        <version>0.1-SNAPSHOT</version>
-	<relativePath>../acrachilisync-parent</relativePath>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>fr.dudie</groupId>
     <artifactId>acrachilisync-core</artifactId>
-    <version>0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>acrachilisync-core</name>
-    <url>http://bugtracker.dudie.fr/projects/acrachilisync</url>
-
-    <issueManagement>
-        <system>Redmine</system>
-        <url>http://bugtracker.dudie.fr/projects/acrachilisync/issues</url>
-    </issueManagement>
-    <scm>
-        <url>git://github.com/kops/acrachilisync.git</url>
-    </scm>
 
     <properties>
         <junit.version>4.8.2</junit.version>
@@ -32,12 +20,20 @@
 
     <repositories>
         <repository>
-	  <!-- This repository provides packages for gdata libs -->
-        	<releases>
-        		<updatePolicy>daily</updatePolicy>
-        	</releases>
-        	<id>mandubian-mvn</id>
+            <!-- This repository provides packages for gdata libs -->
+            <releases>
+                <updatePolicy>daily</updatePolicy>
+            </releases>
+            <id>mandubian-mvn</id>
             <url>http://mandubian-mvn.googlecode.com/svn/trunk/mandubian-mvn/repository</url>
+        </repository>
+        <repository>
+            <!-- This repository provides package for redmine-api -->
+            <releases>
+                <updatePolicy>daily</updatePolicy>
+            </releases>
+            <id>acrachilisync-repo</id>
+            <url>http://kops.github.com/acrachilisync/repository</url>
         </repository>
     </repositories>
 
@@ -63,21 +59,21 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-        	<groupId>javax.mail</groupId>
-        	<artifactId>mail</artifactId>
-        	<version>1.4.1</version>
-        	<type>jar</type>
-        	<scope>compile</scope>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.1</version>
+            <type>jar</type>
+            <scope>compile</scope>
         </dependency>
         <dependency>
-        	<groupId>commons-collections</groupId>
-        	<artifactId>commons-collections</artifactId>
-        	<version>3.2.1</version>
-        	<type>jar</type>
-        	<scope>compile</scope>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>3.2.1</version>
+            <type>jar</type>
+            <scope>compile</scope>
         </dependency>
-	
-	
+
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -92,18 +88,18 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-        	<groupId>commons-lang</groupId>
-        	<artifactId>commons-lang</artifactId>
-        	<version>2.6</version>
-        	<type>jar</type>
-        	<scope>compile</scope>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+            <type>jar</type>
+            <scope>compile</scope>
         </dependency>
         <dependency>
-        	<groupId>commons-configuration</groupId>
-        	<artifactId>commons-configuration</artifactId>
-        	<version>1.6</version>
-        	<type>jar</type>
-        	<scope>compile</scope>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+            <version>1.6</version>
+            <type>jar</type>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>
