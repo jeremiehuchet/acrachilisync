@@ -51,7 +51,6 @@ public final class IssueDescriptionBuilder {
 
         final StringBuilder description = new StringBuilder();
         // append occurrences
-        description.append("\n");
         description.append(IssueDescriptionUtils.getOccurrencesTableHeader()).append("\n");
         for (final Entry<String, Date> entry : occurrences.entrySet()) {
             description.append(IssueDescriptionUtils.getOccurrencesTableLine(entry.getKey(),
@@ -64,7 +63,6 @@ public final class IssueDescriptionBuilder {
         description.append("*Stacktrace*").append("\n");
         description.append("<pre class=\"javastacktrace\">");
         description.append(stacktrace.trim()).append("</pre>");
-        description.append("\n\n");
 
         return description.toString();
     }
