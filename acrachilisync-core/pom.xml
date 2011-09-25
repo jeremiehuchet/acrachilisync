@@ -15,7 +15,7 @@
     <properties>
         <junit.version>4.8.2</junit.version>
         <slf4j.version>1.6.1</slf4j.version>
-        <redmine-api.version>1.2.0</redmine-api.version>
+        <redmine-api.version>1.5.1</redmine-api.version>
     </properties>
 
     <repositories>
@@ -46,8 +46,8 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>org.redmine.ta</groupId>
-            <artifactId>redmine-api</artifactId>
+            <groupId>com.googlecode</groupId>
+            <artifactId>redmine-java-api</artifactId>
             <version>${redmine-api.version}</version>
             <type>jar</type>
             <scope>compile</scope>
