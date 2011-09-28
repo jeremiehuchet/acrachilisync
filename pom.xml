@@ -70,8 +70,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
     </distributionManagement>
 
     <modules>
-        <!--<module>acrachilisync-core</module>-->
-        <module>acrachilisync-cli</module>
+        <module>acrachilisync-core</module>
+	<!--<module>acrachilisync-cli</module>-->
     </modules>
     
 </project>
