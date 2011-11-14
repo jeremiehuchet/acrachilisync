@@ -16,7 +16,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
     <parent>
         <groupId>fr.dudie</groupId>
         <artifactId>dudie-parent</artifactId>
-        <version>1.0</version>
+        <version>1.2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -27,6 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
     <name>AcraChiliSync</name>
     <description>Sync tool to import ACRA bug reports from the standard Google Doc format to a Chiliproject bug tracker instance</description>
     <url>http://kops.github.com/acrachilisync</url>
+    <inceptionYear>2011</inceptionYear>
     
     <licenses>
         <license>
@@ -72,5 +73,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
         <module>acrachilisync-core</module>
 	<!--<module>acrachilisync-cli</module>-->
     </modules>
-    
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.mycila.maven-license-plugin</groupId>
+                <artifactId>maven-license-plugin</artifactId>
+                <configuration>
+                    <header>https://raw.github.com/kops/dudie-parent/master/etc/file-header-gpl.txt</header>
+                    <properties>
+                        <year>${project.inceptionYear}</year>
+                        <owner>Jeremie Huchet</owner>
+                    </properties>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
