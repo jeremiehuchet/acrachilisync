@@ -21,8 +21,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.commons.lang.StringUtils;
+
 import com.google.gdata.data.spreadsheet.CustomElementCollection;
 
+import fr.dudie.acrachilisync.exception.MalformedSpreadsheetLineException;
 import fr.dudie.acrachilisync.utils.MD5Utils;
 
 /**
@@ -54,20 +57,21 @@ public class AcraReport {
      * 
      * @param pCustomElements
      *            custom element collection of a Google Spreadsheet list entry
-     * @throws IllegalArgumentException
+     * @throws MalformedSpreadsheetLineException
      *             the given ListEntry havn't all {@link AcraReportHeader} tag values, <br>
      *             unable to parse the crash date from the ACRA report
      */
-    public AcraReport(final CustomElementCollection pCustomElements) {
+    public AcraReport(final CustomElementCollection pCustomElements)
+            throws MalformedSpreadsheetLineException {
 
         this.elements = pCustomElements;
 
         // check the list entry contains the
         for (final AcraReportHeader header : AcraReportHeader.values()) {
-            if (!elements.getTags().contains(header.tagName())) {
-                throw new IllegalArgumentException(
-                        "The given spreadsheet ListEntry doesn't have all the expected tags: "
-                                + "missing tag " + header.tagName());
+            if (!elements.getTags().contains(header.tagName()) || header.isMandatory()
+                    && StringUtils.isEmpty(elements.getValue(header.tagName()))) {
+                throw new MalformedSpreadsheetLineException(header, elements.getValue(header
+                        .tagName()));
             }
         }
 
@@ -85,7 +89,8 @@ public class AcraReport {
                     "The given spreadsheet ListEntry usercrashdate field value is malformed", e);
         }
 
-        stacktraceMD5 = MD5Utils.toMD5hash(getValue(AcraReportHeader.STACK_TRACE));
+        stacktraceMD5 = MD5Utils
+                .toMD5hash(StringUtils.trim(getValue(AcraReportHeader.STACK_TRACE)));
     }
 
     /**

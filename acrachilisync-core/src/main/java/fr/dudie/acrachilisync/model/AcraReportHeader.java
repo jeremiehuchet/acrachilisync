@@ -27,7 +27,7 @@ public enum AcraReportHeader {
      * A unique identifier for this report. If you receive 2 reports with the same ID then there
      * might be a bug in the handling of reports in ACRA...
      */
-    REPORT_ID,
+    REPORT_ID(true),
 
     /**
      * APP_VERSION_CODE
@@ -37,7 +37,7 @@ public enum AcraReportHeader {
      * Application version code. This is the incremental integer version code used to differentiate
      * versions on the android market. See PackageInfo.versionCode.
      */
-    APP_VERSION_CODE,
+    APP_VERSION_CODE(false),
 
     /**
      * APP_VERSION_NAME
@@ -46,7 +46,7 @@ public enum AcraReportHeader {
      * <p>
      * Application version name. See PackageInfo.versionName.
      */
-    APP_VERSION_NAME,
+    APP_VERSION_NAME(false),
 
     /**
      * PACKAGE_NAME
@@ -55,7 +55,7 @@ public enum AcraReportHeader {
      * <p>
      * Application package name. See Context.getPackageName().
      */
-    PACKAGE_NAME,
+    PACKAGE_NAME(false),
 
     /**
      * FILE_PATH
@@ -66,7 +66,7 @@ public enum AcraReportHeader {
      * http://developer.android.com/reference/android/content/Context.html#getFilesDir()
      * Context.getFilesDir()].
      */
-    FILE_PATH,
+    FILE_PATH(false),
 
     /**
      * PHONE_MODEL
@@ -75,7 +75,7 @@ public enum AcraReportHeader {
      * <p>
      * Device model name. See Build.MODEL.
      */
-    PHONE_MODEL,
+    PHONE_MODEL(false),
 
     /**
      * BRAND
@@ -84,7 +84,7 @@ public enum AcraReportHeader {
      * <p>
      * Device brand (manufacturer or carrier). See Build.BRAND.
      */
-    BRAND,
+    BRAND(false),
 
     /**
      * PRODUCT
@@ -93,7 +93,7 @@ public enum AcraReportHeader {
      * <p>
      * Device overall product code. See Build.PRODUCT.
      */
-    PRODUCT,
+    PRODUCT(false),
 
     /**
      * ANDROID_VERSION
@@ -102,7 +102,7 @@ public enum AcraReportHeader {
      * <p>
      * Device android version name. See Build.VERSION.RELEASE
      */
-    ANDROID_VERSION,
+    ANDROID_VERSION(false),
 
     /**
      * BUILD
@@ -137,7 +137,7 @@ public enum AcraReportHeader {
      * 
      * See Build.
      */
-    BUILD,
+    BUILD(false),
 
     /**
      * TOTAL_MEM_SIZE
@@ -146,7 +146,7 @@ public enum AcraReportHeader {
      * <p>
      * Estimation of the total device memory size based on filesystem stats.
      */
-    TOTAL_MEM_SIZE,
+    TOTAL_MEM_SIZE(false),
 
     /**
      * AVAILABLE_MEM_SIZE
@@ -155,7 +155,7 @@ public enum AcraReportHeader {
      * <p>
      * Estimation of the available device memory size based on filesystem stats.
      */
-    AVAILABLE_MEM_SIZE,
+    AVAILABLE_MEM_SIZE(false),
 
     /**
      * CUSTOM_DATA
@@ -165,7 +165,7 @@ public enum AcraReportHeader {
      * Contains key = value pairs defined by the application developer during the application
      * execution.
      */
-    CUSTOM_DATA,
+    CUSTOM_DATA(false),
 
     /**
      * STACK_TRACE
@@ -174,10 +174,10 @@ public enum AcraReportHeader {
      * <p>
      * The Holy Stack Trace. Details of the exception that caused the application to crash.
      */
-    STACK_TRACE,
+    STACK_TRACE(false),
 
     /** The MD5 hash for the {@link #stacktrace}. */
-    STACK_TRACE_MD5,
+    STACK_TRACE_MD5(false),
 
     /**
      * INITIAL_CONFIGURATION
@@ -204,7 +204,7 @@ public enum AcraReportHeader {
      *    userSetLocale=false
      * </pre>
      */
-    INITIAL_CONFIGURATION,
+    INITIAL_CONFIGURATION(false),
 
     /**
      * CRASH_CONFIGURATION
@@ -244,7 +244,7 @@ public enum AcraReportHeader {
      * day 2 (which was still started but paused) and then the crash occurs. All the configuration
      * changes that happened in between introduce a change in the seq value.
      */
-    CRASH_CONFIGURATION,
+    CRASH_CONFIGURATION(false),
 
     /**
      * DISPLAY
@@ -272,7 +272,7 @@ public enum AcraReportHeader {
      * <p>
      * Comment added by the user in the dialog displayed in NOTIFICATION mode.
      */
-    DISPLAY,
+    DISPLAY(false),
 
     /**
      * USER_APP_START_DATE
@@ -281,7 +281,7 @@ public enum AcraReportHeader {
      * <p>
      * User date on application start.
      */
-    USER_APP_START_DATE,
+    USER_APP_START_DATE(true),
 
     /**
      * USER_CRASH_DATE
@@ -290,7 +290,7 @@ public enum AcraReportHeader {
      * <p>
      * User date immediately after the crash occurred.
      */
-    USER_CRASH_DATE,
+    USER_CRASH_DATE(true),
 
     /**
      * DUMPSYS_MEMINFO
@@ -333,7 +333,7 @@ public enum AcraReportHeader {
      * Analysis of these data require a high knowledge of internal system memory handling. You can
      * get some clues in this StackOverflow answer from Dianne Hackborn.
      */
-    DUMPSYS_MEMINFO,
+    DUMPSYS_MEMINFO(false),
 
     /**
      * DROPBOX
@@ -402,7 +402,7 @@ public enum AcraReportHeader {
      *    Nothing.
      * </pre>
      */
-    DROPBOX,
+    DROPBOX(false),
 
     /**
      * LOGCAT
@@ -414,7 +414,7 @@ public enum AcraReportHeader {
      * Retrieving logcat events in your reports will allow you to retrieve your own debugging
      * traces. See configuration details.
      */
-    LOGCAT,
+    LOGCAT(false),
 
     /**
      * EVENTSLOG
@@ -469,7 +469,7 @@ public enum AcraReportHeader {
      *    03-27 16:37:48.100 I/dvm_gc_info(  559): [8314046716718417551,-9042798587623495631,-3999331673328351193,8525718]
      * </pre>
      */
-    EVENTSLOG,
+    EVENTSLOG(false),
 
     /**
      * RADIOLOG
@@ -524,7 +524,7 @@ public enum AcraReportHeader {
      *    03-27 16:37:44.150 D/RILJ    (  195): [0104]< SIGNAL_STRENGTH {4, 99, -1, -1, -1, -1, 0}
      * </pre>
      */
-    RADIOLOG,
+    RADIOLOG(false),
 
     /**
      * IS_SILENT
@@ -533,7 +533,7 @@ public enum AcraReportHeader {
      * <p>
      * True if the report has been explicitly sent silently by the developer.
      */
-    IS_SILENT,
+    IS_SILENT(false),
 
     /**
      * DEVICE_ID
@@ -545,7 +545,7 @@ public enum AcraReportHeader {
      * the READ_PHONE_STATE permission, you should use #INSTALLATION_ID instead. See
      * TelephonyManager.html#getDeviceId()
      */
-    DEVICE_ID,
+    DEVICE_ID(false),
 
     /**
      * INSTALLATION_ID
@@ -556,7 +556,7 @@ public enum AcraReportHeader {
      * installation without using any personal data. Implemented following the guidelines from the
      * Android Developers Blog.
      */
-    INSTALLATION_ID,
+    INSTALLATION_ID(false),
 
     /**
      * USER_EMAIL
@@ -566,7 +566,7 @@ public enum AcraReportHeader {
      * User email address. Can be provided by the user in the acra.user.email SharedPreference
      * field.
      */
-    USER_EMAIL,
+    USER_EMAIL(false),
 
     /**
      * DEVICE_FEATURES
@@ -602,7 +602,7 @@ public enum AcraReportHeader {
      *    glEsVersion = 2.0
      * </pre>
      */
-    DEVICE_FEATURES,
+    DEVICE_FEATURES(false),
 
     /**
      * ENVIRONMENT
@@ -624,7 +624,7 @@ public enum AcraReportHeader {
      *    isExternalStorageRemovable=true
      * </pre>
      */
-    ENVIRONMENT,
+    ENVIRONMENT(false),
 
     /**
      * SHARED_PREFERENCES
@@ -639,7 +639,7 @@ public enum AcraReportHeader {
      * @ReportsCrashes(additionalSharedPreferences={"my.own.prefs","a.second.prefs" ).
      * </pre>
      */
-    SHARED_PREFERENCES,
+    SHARED_PREFERENCES(false),
 
     /**
      * SETTINGS_SYSTEM
@@ -701,7 +701,7 @@ public enum AcraReportHeader {
      *    WINDOW_ANIMATION_SCALE=1.0
      * </pre>
      */
-    SETTINGS_SYSTEM,
+    SETTINGS_SYSTEM(false),
 
     /**
      * SETTINGS_SECURE
@@ -756,7 +756,31 @@ public enum AcraReportHeader {
      *    WIFI_WATCHDOG_WATCH_LIST=GoogleGuest
      * </pre>
      */
-    SETTINGS_SECURE;
+    SETTINGS_SECURE(false);
+
+    /** True if the field is required to instantiate an {@link AcraReport}. */
+    private final boolean mandatory;
+
+    /**
+     * Constructor.
+     * 
+     * @param pMandatory
+     *            true if the field is required to instantiate an {@link AcraReport}
+     */
+    private AcraReportHeader(final boolean pMandatory) {
+
+        this.mandatory = pMandatory;
+    }
+
+    /**
+     * Is the field mandatory ?
+     * 
+     * @return true if the field is required to instantiate an {@link AcraReport}
+     */
+    public boolean isMandatory() {
+
+        return mandatory;
+    }
 
     /**
      * @return the tag name (for Google spreadsheat use)

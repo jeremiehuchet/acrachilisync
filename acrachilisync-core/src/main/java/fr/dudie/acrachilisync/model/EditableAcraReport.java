@@ -22,6 +22,8 @@ import java.io.IOException;
 import com.google.gdata.data.spreadsheet.ListEntry;
 import com.google.gdata.util.ServiceException;
 
+import fr.dudie.acrachilisync.exception.MalformedSpreadsheetLineException;
+
 /**
  * @author Jérémie Huchet
  */
@@ -35,8 +37,11 @@ public final class EditableAcraReport extends AcraReport {
      * 
      * @param pEntry
      *            the Google spreadsheet list entry
+     * @throws MalformedSpreadsheetLineException
+     *             the given ListEntry havn't all {@link AcraReportHeader} tag values, <br>
+     *             unable to parse the crash date from the ACRA report
      */
-    public EditableAcraReport(final ListEntry pEntry) {
+    public EditableAcraReport(final ListEntry pEntry) throws MalformedSpreadsheetLineException {
 
         super(pEntry.getCustomElements());
         this.listEntry = pEntry;

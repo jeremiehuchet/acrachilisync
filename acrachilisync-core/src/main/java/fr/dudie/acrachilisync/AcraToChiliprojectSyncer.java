@@ -43,6 +43,7 @@ import com.google.gdata.data.spreadsheet.ListEntry;
 import com.google.gdata.data.spreadsheet.ListFeed;
 import com.google.gdata.util.ServiceException;
 
+import fr.dudie.acrachilisync.exception.MalformedSpreadsheetLineException;
 import fr.dudie.acrachilisync.exception.SynchronizationException;
 import fr.dudie.acrachilisync.handler.AcraReportHandler;
 import fr.dudie.acrachilisync.handler.AcraToChiliprojectSyncHandler;
@@ -154,10 +155,21 @@ public final class AcraToChiliprojectSyncer {
         final ListFeed listFeed = client.getFeed(listFeedUrl, ListFeed.class);
         final List<EditableAcraReport> reports = new ArrayList<EditableAcraReport>();
         for (final ListEntry listEntry : listFeed.getEntries()) {
-            reports.add(new EditableAcraReport(listEntry));
+            try {
+                reports.add(new EditableAcraReport(listEntry));
+            } catch (final MalformedSpreadsheetLineException e) {
+                // log the error message
+                LOGGER.error(e.getMessage());
+            }
         }
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("found {} reports to sync", CollectionUtils.size(reports));
+            if (LOGGER.isTraceEnabled()) {
+                for (final EditableAcraReport report : reports) {
+                    LOGGER.trace("reportId={} stacktraceMd5={}", report.getId(),
+                            report.getStacktraceMD5());
+                }
+            }
         }
         return reports;
     }
