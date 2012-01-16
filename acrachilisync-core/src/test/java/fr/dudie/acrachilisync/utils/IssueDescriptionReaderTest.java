@@ -17,8 +17,7 @@
 
 package fr.dudie.acrachilisync.utils;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -198,6 +197,7 @@ public final class IssueDescriptionReaderTest {
         if (expectParseException) {
             assertNotNull("check a parse exception occurred: " + filename, error);
         } else {
+            LOGGER.error("unexpected error", error);
             assertNull("check no exception occurred: " + filename, error);
         }
     }

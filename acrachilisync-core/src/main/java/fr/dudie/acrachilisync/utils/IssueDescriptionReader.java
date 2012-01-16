@@ -18,15 +18,14 @@
 package fr.dudie.acrachilisync.utils;
 
 import java.text.ParseException;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.MapUtils;
 import org.apache.commons.collections.Predicate;
 import org.apache.commons.lang.StringUtils;
 import org.redmine.ta.beans.CustomField;
@@ -35,6 +34,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import fr.dudie.acrachilisync.exception.IssueParseException;
+import fr.dudie.acrachilisync.model.ErrorOccurrence;
 
 /**
  * Helper class to extract informations from an issue description generated with
@@ -48,8 +48,12 @@ public final class IssueDescriptionReader {
     /** The event logger. */
     private static final Logger LOGGER = LoggerFactory.getLogger(IssueDescriptionReader.class);
 
-    /** Regexp : <code>|jsglq4354gjdslg4434|dd/MM/yyyy hh:mm:ss|</code>. */
-    private static final String OCCURR_LINE_PATTERN = "\\|[\\w-]+\\|\\d{2}/\\d{2}/\\d{4} \\d{2}:\\d{2}:\\d{2}\\|";
+    /**
+     * Regexp :
+     * <code>|jsglq4354gjdslg4434|dd/MM/yyyy hh:mm:ss|2.3.3|15|0.3.1|Nexus One / google / passion|</code>
+     * .
+     */
+    public static final String OCCURR_LINE_PATTERN = "\\|[\\w-]+\\|\\d{2}/\\d{2}/\\d{4} \\d{2}:\\d{2}:\\d{2}\\|[^|]+\\|\\d+\\|[^|]+\\|[^|]+\\|";
 
     /** The error stacktrace. */
     private final String stacktrace;
@@ -58,7 +62,7 @@ public final class IssueDescriptionReader {
     private final String stacktraceMD5;
 
     /** The occurrence time for each ACRA bug report. */
-    private final Map<String, Date> occurrences = new HashMap<String, Date>();
+    private final List<ErrorOccurrence> occurrences = new ArrayList<ErrorOccurrence>();
 
     /**
      * Constructor.
@@ -75,7 +79,7 @@ public final class IssueDescriptionReader {
 
         stacktraceMD5 = getStacktraceMD5(pIssue);
         if (!StringUtils.isBlank(pIssue.getDescription())) {
-            occurrences.putAll(parseAcraOccurrencesTable(pIssue.getDescription(), stacktraceMD5));
+            occurrences.addAll(parseAcraOccurrencesTable(pIssue.getDescription(), stacktraceMD5));
             stacktrace = parseStacktrace(pIssue.getDescription(), stacktraceMD5);
         } else {
             stacktrace = "";
@@ -118,10 +122,10 @@ public final class IssueDescriptionReader {
      * @throws IssueParseException
      *             malformed issue description
      */
-    private Map<String, Date> parseAcraOccurrencesTable(final String pDescription,
+    private List<ErrorOccurrence> parseAcraOccurrencesTable(final String pDescription,
             final String pStacktraceMD5) throws IssueParseException {
 
-        final Map<String, Date> occur = new HashMap<String, Date>();
+        final List<ErrorOccurrence> occur = new ArrayList<ErrorOccurrence>();
 
         // escape braces { and } to use strings in regexp
         final String header = IssueDescriptionUtils.getOccurrencesTableHeader();
@@ -138,14 +142,30 @@ public final class IssueDescriptionReader {
             final Pattern pLine = Pattern.compile(OCCURR_LINE_PATTERN);
             final Matcher mLine = pLine.matcher(m.group());
             while (mLine.find()) {
-                final StringTokenizer line = new StringTokenizer(mLine.group(), "|");
-                final String acraReportId = line.nextToken();
-                final String acraUserCrashDate = line.nextToken();
                 try {
-                    occur.put(acraReportId, IssueDescriptionUtils.parseDate(acraUserCrashDate));
-                } catch (final ParseException e) {
-                    throw new IssueParseException("Unable to parse user crash date of ACRA report "
-                            + acraReportId, e);
+                    final StringTokenizer line = new StringTokenizer(mLine.group(), "|");
+                    final String acraReportId = line.nextToken();
+                    final String acraUserCrashDate = line.nextToken();
+                    final String acraAndroidVersion = line.nextToken();
+                    final String acraVersionCode = line.nextToken();
+                    final String acraVersionName = line.nextToken();
+                    final String acraDevice = line.nextToken();
+                    final ErrorOccurrence error = new ErrorOccurrence();
+                    error.setReportId(acraReportId);
+                    try {
+                        error.setCrashDate(IssueDescriptionUtils.parseDate(acraUserCrashDate));
+                    } catch (final ParseException e) {
+                        throw new IssueParseException(
+                                "Unable to parse user crash date of ACRA report " + acraReportId, e);
+                    }
+                    error.setAndroidVersion(acraAndroidVersion);
+                    error.setVersionCode(acraVersionCode);
+                    error.setVersionName(acraVersionName);
+                    error.setDevice(acraDevice);
+                    occur.add(error);
+                } catch (final NoSuchElementException e) {
+                    throw new IssueParseException("Unable to parse ACRA report line: "
+                            + mLine.group(), e);
                 }
             }
         } else {
@@ -156,7 +176,7 @@ public final class IssueDescriptionReader {
             throw new IssueParseException("More than 1 occurrence table found in the description");
         }
 
-        if (MapUtils.isEmpty(occur)) {
+        if (CollectionUtils.isEmpty(occur)) {
             throw new IssueParseException("0 user crash occurrence found in the description");
         }
 
@@ -227,7 +247,7 @@ public final class IssueDescriptionReader {
      * 
      * @return the occurrences
      */
-    public Map<String, Date> getOccurrences() {
+    public List<ErrorOccurrence> getOccurrences() {
 
         return occurrences;
     }

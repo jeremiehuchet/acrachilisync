@@ -17,7 +17,7 @@
 
 package fr.dudie.acrachilisync.utils;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -29,6 +29,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import fr.dudie.acrachilisync.model.ErrorOccurrence;
 
 /**
  * Test the issue description reader.
@@ -75,7 +77,14 @@ public final class IssueDescriptionBuilderTest {
     public void testGenerateDescription() {
 
         final IssueDescriptionBuilder builder = new IssueDescriptionBuilder(stacktrace);
-        builder.addOccurrence(UUID.randomUUID().toString(), new Date());
+        final ErrorOccurrence error = new ErrorOccurrence();
+        error.setReportId(UUID.randomUUID().toString());
+        error.setCrashDate(new Date());
+        error.setAndroidVersion("2.3.3");
+        error.setVersionCode("16");
+        error.setVersionName("0.3.1");
+        error.setDevice("Nexus One / google / passion");
+        builder.addOccurrence(error);
         final String description = builder.build();
 
         if (LOGGER.isTraceEnabled()) {

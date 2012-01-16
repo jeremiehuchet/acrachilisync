@@ -38,6 +38,7 @@ import fr.dudie.acrachilisync.model.SyncStatus;
 import fr.dudie.acrachilisync.utils.ConfigurationManager;
 import fr.dudie.acrachilisync.utils.IssueDescriptionBuilder;
 import fr.dudie.acrachilisync.utils.IssueDescriptionReader;
+import fr.dudie.acrachilisync.utils.IssueDescriptionUtils;
 
 /**
  * The first {@link AcraReportHandler} triggered: synchronizes Acra reports to the Chiliproject
@@ -90,7 +91,7 @@ public final class AcraToChiliprojectSyncHandler implements AcraReportHandler {
 
         final String stack = pReport.getValue(AcraReportHeader.STACK_TRACE);
         final IssueDescriptionBuilder description = new IssueDescriptionBuilder(stack);
-        description.addOccurrence(pReport.getId(), pReport.getUserCrashDate());
+        description.addOccurrence(IssueDescriptionUtils.toErrorOccurrence(pReport));
 
         final Matcher m = Pattern.compile("(.*)$", Pattern.MULTILINE).matcher(stack);
         m.find();
@@ -147,7 +148,7 @@ public final class AcraToChiliprojectSyncHandler implements AcraReportHandler {
 
         final IssueDescriptionBuilder builder = new IssueDescriptionBuilder(reader.getStacktrace());
         builder.setOccurrences(reader.getOccurrences());
-        builder.addOccurrence(pReport.getId(), pReport.getUserCrashDate());
+        builder.addOccurrence(IssueDescriptionUtils.toErrorOccurrence(pReport));
 
         pIssue.setDescription(builder.build());
 

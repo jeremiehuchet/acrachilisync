@@ -17,13 +17,14 @@
 
 package fr.dudie.acrachilisync.utils;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import fr.dudie.acrachilisync.model.ErrorOccurrence;
 
 /**
  * Helper class to build a formatted issue description to be able to retrieve informations later.
@@ -43,7 +44,7 @@ public final class IssueDescriptionBuilder {
     private final String stacktraceMD5;
 
     /** The occurrence time for each ACRA bug report. */
-    private final Map<String, Date> occurrences;
+    private final List<ErrorOccurrence> occurrences;
 
     /**
      * Default constructor.
@@ -55,7 +56,7 @@ public final class IssueDescriptionBuilder {
 
         stacktrace = pStacktrace;
         stacktraceMD5 = MD5Utils.toMD5hash(pStacktrace);
-        occurrences = new HashMap<String, Date>();
+        occurrences = new ArrayList<ErrorOccurrence>();
     }
 
     /**
@@ -69,9 +70,8 @@ public final class IssueDescriptionBuilder {
         final StringBuilder description = new StringBuilder();
         // append occurrences
         description.append(IssueDescriptionUtils.getOccurrencesTableHeader()).append("\n");
-        for (final Entry<String, Date> entry : occurrences.entrySet()) {
-            description.append(IssueDescriptionUtils.getOccurrencesTableLine(entry.getKey(),
-                    entry.getValue()));
+        for (final ErrorOccurrence error : occurrences) {
+            description.append(IssueDescriptionUtils.getOccurrencesTableLine(error));
             description.append("\n");
         }
 
@@ -88,27 +88,25 @@ public final class IssueDescriptionBuilder {
      * Sets the list of occurrences for this bug.
      * 
      * @param pOccurrences
-     *            a map with the bug occurrence date for each ACRA report id related to the bug
+     *            a list with the bug occurrence informations
      * @see #addOccurrence(String, Date)
      */
-    public void setOccurrences(final Map<String, Date> pOccurrences) {
+    public void setOccurrences(final List<ErrorOccurrence> pOccurrences) {
 
         occurrences.clear();
-        for (final Entry<String, Date> entry : pOccurrences.entrySet()) {
-            addOccurrence(entry.getKey(), entry.getValue());
+        for (final ErrorOccurrence error : pOccurrences) {
+            addOccurrence(error);
         }
     }
 
     /**
      * Adds an occurrence for this bug.
      * 
-     * @param pReportId
-     *            the ACRA report id
-     * @param pUserCrashDate
-     *            the date when the user crash occurred
+     * @param pError
+     *            the ACRA error informations
      */
-    public void addOccurrence(final String pReportId, final Date pUserCrashDate) {
+    public void addOccurrence(final ErrorOccurrence pError) {
 
-        occurrences.put(pReportId, pUserCrashDate);
+        occurrences.add(pError);
     }
 }

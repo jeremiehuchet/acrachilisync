@@ -24,6 +24,10 @@ import java.util.Date;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import fr.dudie.acrachilisync.model.AcraReport;
+import fr.dudie.acrachilisync.model.AcraReportHeader;
+import fr.dudie.acrachilisync.model.ErrorOccurrence;
+
 /**
  * Utilities to parse/build issue description.
  * <p>
@@ -32,10 +36,10 @@ import org.slf4j.LoggerFactory;
  * <pre>
  * h2. ACRA occurrences
  * %{visibility:hidden}occurrences_73ad687b153f570e218c5b5c2226edc4_start%
- * |_. ACRA report id|_. date|
- * |<acra report id1>|dd/MM/yyyy hh:mm:ss|
- * |<acra report id435>|dd/MM/yyyy hh:mm:ss|
- * |<acra report id..>|dd/MM/yyyy hh:mm:ss|
+ * |_. ACRA report id|_. date|_. android|_\2. app version|_. device|
+ * |<acra report id1>|dd/MM/yyyy hh:mm:ss|1.6|12|0.3.1|Dream / HTC / dream|
+ * |<acra report id435>|dd/MM/yyyy hh:mm:ss|2.2|12|0.3.1|Nexus One / google / passion|
+ * |<acra report id..>|dd/MM/yyyy hh:mm:ss|2.3.3|12|0.3.1|Nexus One / google / passion|
  * %{visibility:hidden}occurrences_73ad687b153f570e218c5b5c2226edc4_end%
  * 
  * h2. Stacktrace
@@ -77,10 +81,10 @@ public final class IssueDescriptionUtils {
     private static final String OCCURRENCES_END_TAG_FORMAT = "%%{visibility:hidden}occurrences_%s_end%%";
 
     /** ACRA bug occurrences table header. */
-    private static final String OCCURRENCES_TABLE_HEADER = "|_. ACRA report id|_. date|";
+    private static final String OCCURRENCES_TABLE_HEADER = "|_. ACRA report id|_. date|_. android|_\\2. app version|_. device|";
 
     /** ACRA bug occurrences table line format (use with {@link String#format(String, Object...)}). */
-    private static final String OCCURRENCES_TABLE_LINE_FORMAT = "|%s|%s|";
+    private static final String OCCURRENCES_TABLE_LINE_FORMAT = "|%s|%s|%s|%s|%s|%s|";
 
     /** The date format used for ACRA user crash dates. */
     private static final String OCCURRENCE_DATE_FORMAT = "dd/MM/yyyy hh:mm:ss";
@@ -122,18 +126,16 @@ public final class IssueDescriptionUtils {
     /**
      * Formats a table line for the ACRA bug occurrences table.
      * 
-     * @param pAcraReportId
-     *            the ACRA report id
-     * @param pUserCrashDate
-     *            the user crash date
+     * @param pError
+     *            the ACRA error informations
      * @return a line for the ACRA bug occurrences table
      */
-    public static String getOccurrencesTableLine(final String pAcraReportId,
-            final Date pUserCrashDate) {
+    public static Object getOccurrencesTableLine(final ErrorOccurrence pError) {
 
         final SimpleDateFormat format = new SimpleDateFormat(OCCURRENCE_DATE_FORMAT);
-        return String.format(OCCURRENCES_TABLE_LINE_FORMAT, pAcraReportId,
-                format.format(pUserCrashDate));
+        return String.format(OCCURRENCES_TABLE_LINE_FORMAT, pError.getReportId(),
+                format.format(pError.getCrashDate()), pError.getAndroidVersion(),
+                pError.getVersionCode(), pError.getVersionName(), pError.getDevice());
     }
 
     /**
@@ -188,5 +190,28 @@ public final class IssueDescriptionUtils {
     public static String getStacktraceEndTag(final String pStacktraceMD5) {
 
         return String.format(STACKTRACE_END_TAG_FORMAT, pStacktraceMD5);
+    }
+
+    /**
+     * Converts an {@link AcraReport} to an {@link ErrorOccurrence}.
+     * 
+     * @param pReport
+     *            the report to convert
+     * @return the {@link ErrorOccurrence}
+     */
+    public static ErrorOccurrence toErrorOccurrence(final AcraReport pReport) {
+
+        final ErrorOccurrence error = new ErrorOccurrence();
+        error.setReportId(pReport.getId());
+        error.setCrashDate(pReport.getUserCrashDate());
+        error.setAndroidVersion(pReport.getValue(AcraReportHeader.ANDROID_VERSION));
+        error.setVersionCode(pReport.getValue(AcraReportHeader.APP_VERSION_CODE));
+        error.setVersionName(pReport.getValue(AcraReportHeader.APP_VERSION_NAME));
+        final StringBuilder device = new StringBuilder();
+        device.append(pReport.getValue(AcraReportHeader.PHONE_MODEL)).append(" / ");
+        device.append(pReport.getValue(AcraReportHeader.BRAND)).append(" / ");
+        device.append(pReport.getValue(AcraReportHeader.PRODUCT));
+        error.setDevice(device.toString());
+        return error;
     }
 }

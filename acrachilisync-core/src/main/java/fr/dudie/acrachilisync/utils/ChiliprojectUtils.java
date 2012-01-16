@@ -17,13 +17,14 @@
 
 package fr.dudie.acrachilisync.utils;
 
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections.Predicate;
 import org.redmine.ta.beans.Issue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import fr.dudie.acrachilisync.exception.IssueParseException;
 import fr.dudie.acrachilisync.model.AcraReport;
-import fr.dudie.acrachilisync.model.AcraReportHeader;
 
 /**
  * @author Jérémie Huchet
@@ -55,6 +56,33 @@ public final class ChiliprojectUtils {
             throws IssueParseException {
 
         final IssueDescriptionReader reader = new IssueDescriptionReader(pIssue);
-        return reader.getOccurrences().containsKey(pReport.getValue(AcraReportHeader.REPORT_ID));
+        return CollectionUtils.exists(reader.getOccurrences(), new ReportPredicate(pReport));
+    }
+
+    /**
+     * A predicate to find two reports with the same identifier.
+     * 
+     * @see AcraReport#getId()
+     * @author Jérémie Huchet
+     */
+    private static class ReportPredicate implements Predicate {
+
+        private final AcraReport report;
+
+        public ReportPredicate(final AcraReport pReport) {
+
+            this.report = pReport;
+        }
+
+        @Override
+        public boolean evaluate(final Object object) {
+
+            if (object instanceof AcraReport) {
+                return ((AcraReport) object).getId().equals(this.report.getId());
+            } else {
+                return false;
+            }
+        }
+
     }
 }
