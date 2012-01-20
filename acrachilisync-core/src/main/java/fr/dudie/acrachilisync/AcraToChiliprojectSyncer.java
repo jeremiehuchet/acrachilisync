@@ -64,7 +64,7 @@ public final class AcraToChiliprojectSyncer {
     private static final Logger LOGGER = LoggerFactory.getLogger(AcraToChiliprojectSyncer.class);
 
     /** The application name used during Google authentication. */
-    private static final String APP_NAME = "dudie-acrachilisync-0.1";
+    private static final String APP_NAME = "dudie-acrachilisync-0.2";
 
     /**
      * A format string to build a worksheet list feed URL. You must provide two string arguments to

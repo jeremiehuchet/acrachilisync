@@ -68,16 +68,19 @@ public final class IssueDescriptionBuilder {
     public String build() {
 
         final StringBuilder description = new StringBuilder();
+        // append version
+        description.append(IssueDescriptionUtils.DESCRIPTION_VERSION_TAG).append('\n');
+
         // append occurrences
-        description.append(IssueDescriptionUtils.getOccurrencesTableHeader()).append("\n");
+        description.append(IssueDescriptionUtils.getOccurrencesTableHeader()).append('\n');
         for (final ErrorOccurrence error : occurrences) {
             description.append(IssueDescriptionUtils.getOccurrencesTableLine(error));
-            description.append("\n");
+            description.append('\n');
         }
 
         // append stacktrace
         description.append("\n\n");
-        description.append("*Stacktrace*").append("\n");
+        description.append("*Stacktrace*").append('\n');
         description.append("<pre class=\"javastacktrace\">");
         description.append(stacktrace.trim()).append("</pre>");
 

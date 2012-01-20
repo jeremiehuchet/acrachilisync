@@ -55,6 +55,11 @@ public final class IssueDescriptionReader {
      */
     public static final String OCCURR_LINE_PATTERN = "\\|[\\w-]+\\|\\d{2}/\\d{2}/\\d{4} \\d{2}:\\d{2}:\\d{2}\\|[^|]+\\|\\d+\\|[^|]+\\|[^|]+\\|";
 
+    public static final Pattern DESCRIPTION_VERSION_PATTERN = Pattern
+
+    .compile("\\s*%\\{visibility:hidden\\}description_version_(\\d+)%\\s*",
+            Pattern.CASE_INSENSITIVE);
+
     /** The error stacktrace. */
     private final String stacktrace;
 
@@ -77,6 +82,8 @@ public final class IssueDescriptionReader {
      */
     public IssueDescriptionReader(final Issue pIssue) throws IssueParseException {
 
+        checkDescriptionVersion(pIssue);
+
         stacktraceMD5 = getStacktraceMD5(pIssue);
         if (!StringUtils.isBlank(pIssue.getDescription())) {
             occurrences.addAll(parseAcraOccurrencesTable(pIssue.getDescription(), stacktraceMD5));
@@ -86,6 +93,32 @@ public final class IssueDescriptionReader {
             if (LOGGER.isDebugEnabled()) {
                 LOGGER.debug("Issue {} have an empty description", pIssue.getId());
             }
+        }
+    }
+
+    /**
+     * Checks the description version tag.
+     * 
+     * @param pIssue
+     *            the issue
+     * @throws IssueParseException
+     *             the description version tag doesn't describe the expected version
+     *             {@link IssueDescriptionUtils#DESCRIPTION_VERSION}
+     */
+    private void checkDescriptionVersion(final Issue pIssue) throws IssueParseException {
+
+        final Matcher m = DESCRIPTION_VERSION_PATTERN.matcher(pIssue.getDescription());
+        final int version;
+        if (m.find()) {
+            version = Integer.parseInt(m.group(1));
+        } else {
+            // default version is 1
+            version = 1;
+        }
+        if (IssueDescriptionUtils.DESCRIPTION_VERSION != version) {
+            throw new IssueParseException(String.format(
+                    "Issue #%s has unsupported description: %d. Expected version %d ",
+                    pIssue.getId(), version, IssueDescriptionUtils.DESCRIPTION_VERSION));
         }
     }
 

@@ -71,7 +71,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
 
     <modules>
         <module>acrachilisync-core</module>
-	<!--<module>acrachilisync-cli</module>-->
+	<module>acrachilisync-cli</module>
+	<module>acrachilisync-tools</module>
     </modules>
 
     <build>

@@ -214,4 +214,12 @@ public final class IssueDescriptionUtils {
         error.setDevice(device.toString());
         return error;
     }
+
+    /** The current description format version. */
+    public static final int DESCRIPTION_VERSION = 2;
+
+    /** The expected description version tag marking. */
+    public static final String DESCRIPTION_VERSION_TAG = String.format(
+            "%%{visibility:hidden}description_version_%d%%", DESCRIPTION_VERSION);
+
 }
