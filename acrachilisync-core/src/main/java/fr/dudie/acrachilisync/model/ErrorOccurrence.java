@@ -32,6 +32,9 @@ public class ErrorOccurrence {
     /** The date when the crash occured. */
     private Date crashDate;
 
+    /** The running time before the crash. */
+    private Date runFor;
+
     /** The android version running the application. */
     private String androidVersion;
 
@@ -84,6 +87,27 @@ public class ErrorOccurrence {
     public final void setCrashDate(final Date crashDate) {
 
         this.crashDate = crashDate;
+    }
+
+    /**
+     * Gets the runFor.
+     * 
+     * @return the runFor
+     */
+    public final Date getRunFor() {
+
+        return runFor;
+    }
+
+    /**
+     * Sets the runFor.
+     * 
+     * @param runFor
+     *            the runFor to set
+     */
+    public final void setRunFor(final Date runFor) {
+
+        this.runFor = runFor;
     }
 
     /**

@@ -80,6 +80,7 @@ public final class IssueDescriptionBuilderTest {
         final ErrorOccurrence error = new ErrorOccurrence();
         error.setReportId(UUID.randomUUID().toString());
         error.setCrashDate(new Date());
+        error.setRunFor(new Date(64784554));
         error.setAndroidVersion("2.3.3");
         error.setVersionCode("16");
         error.setVersionName("0.3.1");

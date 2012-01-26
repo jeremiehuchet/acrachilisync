@@ -68,8 +68,6 @@ public final class IssueDescriptionBuilder {
     public String build() {
 
         final StringBuilder description = new StringBuilder();
-        // append version
-        description.append(IssueDescriptionUtils.DESCRIPTION_VERSION_TAG).append('\n');
 
         // append occurrences
         description.append(IssueDescriptionUtils.getOccurrencesTableHeader()).append('\n');
@@ -83,6 +81,9 @@ public final class IssueDescriptionBuilder {
         description.append("*Stacktrace*").append('\n');
         description.append("<pre class=\"javastacktrace\">");
         description.append(stacktrace.trim()).append("</pre>");
+
+        // append version
+        description.append('\n').append(IssueDescriptionUtils.DESCRIPTION_VERSION_TAG);
 
         return description.toString();
     }

@@ -35,15 +35,12 @@ import fr.dudie.acrachilisync.model.ErrorOccurrence;
  * 
  * <pre>
  * h2. ACRA occurrences
- * %{visibility:hidden}occurrences_73ad687b153f570e218c5b5c2226edc4_start%
- * |_. ACRA report id|_. date|_. android|_\2. app version|_. device|
- * |<acra report id1>|dd/MM/yyyy hh:mm:ss|1.6|12|0.3.1|Dream / HTC / dream|
- * |<acra report id435>|dd/MM/yyyy hh:mm:ss|2.2|12|0.3.1|Nexus One / google / passion|
- * |<acra report id..>|dd/MM/yyyy hh:mm:ss|2.3.3|12|0.3.1|Nexus One / google / passion|
- * %{visibility:hidden}occurrences_73ad687b153f570e218c5b5c2226edc4_end%
+ * |_. ACRA report id|_. crash date|_. run for|_. android|_\2. app version|_. device|
+ * |<acra report id1>|dd/MM/yyyy hh:mm:ss|2s|1.6|12|0.3.1|Dream / HTC / dream|
+ * |<acra report id435>|dd/MM/yyyy hh:mm:ss|1d 12m 32s|2.2|12|0.3.1|Nexus One / google / passion|
+ * |<acra report id..>|dd/MM/yyyy hh:mm:ss|5m 6s|2.3.3|12|0.3.1|Nexus One / google / passion|
  * 
  * h2. Stacktrace
- * %{visibility:hidden}stacktrace_73ad687b153f570e218c5b5c2226edc4_start%
  * &lt;pre&gt;java.lang.NoClassDefFoundError: javax/mail/MessagingException
  *     at fr.dudie.acrachilisync.TestGdocsApi.listAllDocuments(TestGdocsApi.java:30)
  *     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -51,7 +48,6 @@ import fr.dudie.acrachilisync.model.ErrorOccurrence;
  *     at java.net.URLClassLoader$1.run(URLClassLoader.java:202)
  *     at java.lang.ClassLoader.loadClass(ClassLoader.java:247)
  *     ... 24 more&lt;/pre&gt;
- * %{visibility:hidden}stacktrace_73ad687b153f570e218c5b5c2226edc4_end%
  * </pre>
  * 
  * @author Jérémie Huchet
@@ -68,50 +64,14 @@ public final class IssueDescriptionUtils {
 
     }
 
-    /**
-     * Start tag format put just before the table containg ACRA bug occurrence dates (use with
-     * {@link String#format(String, Object...)}).
-     */
-    private static final String OCCURRENCES_START_TAG_FORMAT = "%%{visibility:hidden}occurrences_%s_start%%";
-
-    /**
-     * End tag format put just after the table containg ACRA bug occurrence dates (use with
-     * {@link String#format(String, Object...)}).
-     */
-    private static final String OCCURRENCES_END_TAG_FORMAT = "%%{visibility:hidden}occurrences_%s_end%%";
-
     /** ACRA bug occurrences table header. */
-    private static final String OCCURRENCES_TABLE_HEADER = "|_. ACRA report id|_. date|_. android|_\\2. app version|_. device|";
+    private static final String OCCURRENCES_TABLE_HEADER = "|_. ACRA report id|_. crash date|_. run for|_. android|_\\2. app version|_. device|";
 
     /** ACRA bug occurrences table line format (use with {@link String#format(String, Object...)}). */
-    private static final String OCCURRENCES_TABLE_LINE_FORMAT = "|%s|%s|%s|%s|%s|%s|";
+    private static final String OCCURRENCES_TABLE_LINE_FORMAT = "|%s|%s|%s|%s|%s|%s|%s|";
 
     /** The date format used for ACRA user crash dates. */
     private static final String OCCURRENCE_DATE_FORMAT = "dd/MM/yyyy hh:mm:ss";
-
-    /**
-     * Gets the formatted {@link #OCCURRENCES_START_TAG_FORMAT}.
-     * 
-     * @param pStacktraceMD5
-     *            a MD5 hash
-     * @return a unique start tag for the given hash
-     */
-    public static String getOccurrencesStartTag(final String pStacktraceMD5) {
-
-        return String.format(OCCURRENCES_START_TAG_FORMAT, pStacktraceMD5);
-    }
-
-    /**
-     * Gets the formatted {@link #OCCURRENCES_END_TAG_FORMAT}.
-     * 
-     * @param pStacktraceMD5
-     *            a MD5 hash
-     * @return a unique end tag for the given hash
-     */
-    public static String getOccurrencesEndTag(final String pStacktraceMD5) {
-
-        return String.format(OCCURRENCES_END_TAG_FORMAT, pStacktraceMD5);
-    }
 
     /**
      * Gets the ACRA bug occurrences table header.
@@ -134,7 +94,8 @@ public final class IssueDescriptionUtils {
 
         final SimpleDateFormat format = new SimpleDateFormat(OCCURRENCE_DATE_FORMAT);
         return String.format(OCCURRENCES_TABLE_LINE_FORMAT, pError.getReportId(),
-                format.format(pError.getCrashDate()), pError.getAndroidVersion(),
+                format.format(pError.getCrashDate()),
+                RunningTimeUtils.toString(pError.getRunFor()), pError.getAndroidVersion(),
                 pError.getVersionCode(), pError.getVersionName(), pError.getDevice());
     }
 
@@ -153,44 +114,8 @@ public final class IssueDescriptionUtils {
         return format.parse(pDate);
     }
 
-    /**
-     * Start tag format put just before the full stacktrace. (use with
-     * {@link String#format(String, Object...)}).
-     */
-    private static final String STACKTRACE_START_TAG_FORMAT = "%%{visibility:hidden}stacktrace_%s_start%%";
-
-    /**
-     * End tag format put just after the full stacktrace. (use with
-     * {@link String#format(String, Object...)}).
-     */
-    private static final String STACKTRACE_END_TAG_FORMAT = "%%{visibility:hidden}stacktrace_%s_end%%";
-
     /** Regular expression to detect line terminators. */
     public static final String EOL = "[\n(?:\r\n)\r\u0085\u2028\u2029]";
-
-    /**
-     * Gets the formatted {@link #STACKTRACE_START_TAG_FORMAT}.
-     * 
-     * @param pStacktraceMD5
-     *            a MD5 hash
-     * @return a unique start tag for the given hash
-     */
-    public static String getStacktraceStartTag(final String pStacktraceMD5) {
-
-        return String.format(STACKTRACE_START_TAG_FORMAT, pStacktraceMD5);
-    }
-
-    /**
-     * Gets the formatted {@link #STACKTRACE_END_TAG_FORMAT}.
-     * 
-     * @param pStacktraceMD5
-     *            a MD5 hash
-     * @return a unique end tag for the given hash
-     */
-    public static String getStacktraceEndTag(final String pStacktraceMD5) {
-
-        return String.format(STACKTRACE_END_TAG_FORMAT, pStacktraceMD5);
-    }
 
     /**
      * Converts an {@link AcraReport} to an {@link ErrorOccurrence}.
@@ -204,6 +129,8 @@ public final class IssueDescriptionUtils {
         final ErrorOccurrence error = new ErrorOccurrence();
         error.setReportId(pReport.getId());
         error.setCrashDate(pReport.getUserCrashDate());
+        error.setRunFor(new Date(pReport.getUserCrashDate().getTime()
+                - pReport.getUserAppStartDate().getTime()));
         error.setAndroidVersion(pReport.getValue(AcraReportHeader.ANDROID_VERSION));
         error.setVersionCode(pReport.getValue(AcraReportHeader.APP_VERSION_CODE));
         error.setVersionName(pReport.getValue(AcraReportHeader.APP_VERSION_NAME));
@@ -220,6 +147,6 @@ public final class IssueDescriptionUtils {
 
     /** The expected description version tag marking. */
     public static final String DESCRIPTION_VERSION_TAG = String.format(
-            "%%{visibility:hidden}description_version_%d%%", DESCRIPTION_VERSION);
+            "%%(acrachilisync-description-version)description_version_%d%%", DESCRIPTION_VERSION);
 
 }

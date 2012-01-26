@@ -50,14 +50,34 @@ public final class IssueDescriptionReader {
 
     /**
      * Regexp :
-     * <code>|jsglq4354gjdslg4434|dd/MM/yyyy hh:mm:ss|2.3.3|15|0.3.1|Nexus One / google / passion|</code>
+     * <code>|jsglq4354gjdslg4434|dd/MM/yyyy hh:mm:ss|1d 2h 21m 55s|2.3.3|15|0.3.1|Nexus One / google / passion|</code>
      * .
      */
-    public static final String OCCURR_LINE_PATTERN = "\\|[\\w-]+\\|\\d{2}/\\d{2}/\\d{4} \\d{2}:\\d{2}:\\d{2}\\|[^|]+\\|\\d+\\|[^|]+\\|[^|]+\\|";
+    public static final String OCCURR_LINE_PATTERN;
+    static {
+        final StringBuilder buf = new StringBuilder();
+        // |jsglq4354gjdslg4434
+        buf.append("\\|").append("[\\w-]+");
+        // |dd/MM/yyyy hh:mm:ss
+        buf.append("\\|").append("\\d{2}/\\d{2}/\\d{4} \\d{2}:\\d{2}:\\d{2}");
+        // |1d 2h 21m 55s OR |2h 21m 55s OR |21m 55s OR | 55s
+        buf.append("\\|").append("(((\\d{1,2}d )?\\d{1,2}h )?\\d{1,2}m )?\\d{1,2}s");
+        // |2.3.3
+        buf.append("\\|").append("[^|]+");
+        // |15
+        buf.append("\\|").append("\\d+");
+        // |0.3.1
+        buf.append("\\|").append("[^|]+");
+        // |Nexus One / google / passion
+        buf.append("\\|").append("[^|]+");
+        // |
+        buf.append("\\|");
+        OCCURR_LINE_PATTERN = buf.toString();
+    }
 
     public static final Pattern DESCRIPTION_VERSION_PATTERN = Pattern
 
-    .compile("\\s*%\\{visibility:hidden\\}description_version_(\\d+)%\\s*",
+    .compile("\\s*%\\(acrachilisync-description-version\\)description_version_(\\d+)%\\s*",
             Pattern.CASE_INSENSITIVE);
 
     /** The error stacktrace. */
@@ -179,6 +199,7 @@ public final class IssueDescriptionReader {
                     final StringTokenizer line = new StringTokenizer(mLine.group(), "|");
                     final String acraReportId = line.nextToken();
                     final String acraUserCrashDate = line.nextToken();
+                    final String acraRunFor = line.nextToken();
                     final String acraAndroidVersion = line.nextToken();
                     final String acraVersionCode = line.nextToken();
                     final String acraVersionName = line.nextToken();
@@ -187,6 +208,7 @@ public final class IssueDescriptionReader {
                     error.setReportId(acraReportId);
                     try {
                         error.setCrashDate(IssueDescriptionUtils.parseDate(acraUserCrashDate));
+                        error.setRunFor(RunningTimeUtils.parseRunningTime(acraRunFor));
                     } catch (final ParseException e) {
                         throw new IssueParseException(
                                 "Unable to parse user crash date of ACRA report " + acraReportId, e);

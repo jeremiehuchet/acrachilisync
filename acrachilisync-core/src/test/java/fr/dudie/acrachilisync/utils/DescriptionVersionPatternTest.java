@@ -42,9 +42,11 @@ public class DescriptionVersionPatternTest {
     public static List<Object[]> data() throws URISyntaxException {
 
         final List<Object[]> data = new ArrayList<Object[]>();
-        data.add(new Object[] { true, "%{visibility:hidden}description_version_2%" });
-        data.add(new Object[] { true, "  %{visibility:hidden}description_version_2%  " });
-        data.add(new Object[] { true, "%{visibility:hidden}description_version_2%" + '\n' });
+        data.add(new Object[] { true, "%(acrachilisync-description-version)description_version_2%" });
+        data.add(new Object[] { true,
+                "  %(acrachilisync-description-version)description_version_2%  " });
+        data.add(new Object[] { true,
+                "%(acrachilisync-description-version)description_version_2%" + '\n' });
         data.add(new Object[] { false, "" });
 
         return data;

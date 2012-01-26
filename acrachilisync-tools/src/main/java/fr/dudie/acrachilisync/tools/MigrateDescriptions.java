@@ -162,6 +162,14 @@ public class MigrateDescriptions {
                     reader.getStacktrace());
             builder.setOccurrences(errors);
             pIssue.setDescription(builder.build());
+            if (LOGGER.isTraceEnabled()) {
+                final StringBuilder msg = new StringBuilder();
+                msg.append("\n\n================================= Issue #");
+                msg.append(+pIssue.getId());
+                msg.append(" =================================\n");
+                msg.append(pIssue.getDescription());
+                LOGGER.trace(msg.toString());
+            }
             // redmine.updateIssue(pIssue);
         } catch (final Exception e) {
             throw new DescriptionUpgradeException(pIssue, e);

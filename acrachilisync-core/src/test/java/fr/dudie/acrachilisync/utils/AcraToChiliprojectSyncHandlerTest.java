@@ -109,6 +109,8 @@ public final class AcraToChiliprojectSyncHandlerTest {
         elems.setValueLocal(AcraReportHeader.REPORT_ID.tagName(), "reportID");
         elems.setValueLocal(AcraReportHeader.STACK_TRACE_MD5.tagName(), stacktraceMD5);
         elems.setValueLocal(AcraReportHeader.STACK_TRACE.tagName(), stacktrace);
+        elems.setValueLocal(AcraReportHeader.USER_APP_START_DATE.tagName(),
+                "2011-11-06T04:59:21.000+01:00");
         elems.setValueLocal(AcraReportHeader.USER_CRASH_DATE.tagName(),
                 "2011-11-06T05:01:39.000+01:00");
         final AcraReport report = new AcraReport(elems);

@@ -1,8 +1,7 @@
-%{visibility:hidden}description_version_2%
-|_. ACRA report id|_. date|_. android|_\2. app version|_. device|
-|cccf8749-35f0-4d4d-a82e-32fce50e9c1b |24/02/2011 09:23:02|2.3|22|not_set|Nexus One / google / passion|
-|cccf8749-35f0-4d4d-a82e-32fce50e9c1b|24/02/2011 21:43:29|2.2|13|ItineRennes 0.3.1|Modele / brand / code|
-|cccf8749-35f0-4d4d-a82e-32fce50e9c1b|24/02/2011 12:54:51|2.2|1|ItineRennes 0.2.2|Dream / HTC / dream|
+|_. ACRA report id|_. crash date|_. run for|_. android|_\2. app version|_. device|
+|cccf8749-35f0-4d4d-a82e-32fce50e9c1b |24/02/2011 09:23:02|4m 02s|2.3|22|not_set|Nexus One / google / passion|
+|cccf8749-35f0-4d4d-a82e-32fce50e9c1b|24/02/2011 21:43:29|05m 11s|2.2|13|ItineRennes 0.3.1|Modele / brand / code|
+|cccf8749-35f0-4d4d-a82e-32fce50e9c1b|24/02/2011 12:54:51|11m 34s|2.2|1|ItineRennes 0.2.2|Dream / HTC / dream|
 
 *Stacktrace*
 <pre class="javastacktrace">java.lang.NoClassDefFoundError: javax/mail/MessagingException
@@ -12,3 +11,4 @@ Caused by: java.lang.ClassNotFoundException: javax.mail.MessagingException
     at java.net.URLClassLoader$1.run(URLClassLoader.java:202)
     at java.lang.ClassLoader.loadClass(ClassLoader.java:247)
     ... 24 more</pre>
+%(acrachilisync-description-version)description_version_2%

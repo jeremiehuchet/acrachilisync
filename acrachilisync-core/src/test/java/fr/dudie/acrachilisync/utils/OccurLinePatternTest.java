@@ -43,13 +43,13 @@ public class OccurLinePatternTest {
         final List<Object[]> data = new ArrayList<Object[]>();
         data.add(new Object[] {
                 true,
-                "|cccf8749-35f0-4d4d-a82e-32fce50e9c1b|24/02/2011 09:23:02|1.6|2|not_set|Nexus One / google / passion|" });
+                "|cccf8749-35f0-4d4d-a82e-32fce50e9c1b|24/02/2011 09:23:02|1s|1.6|2|not_set|Nexus One / google / passion|" });
         data.add(new Object[] {
                 true,
-                "|cccf8749-35f0-4d4d-a82e-32fce50e9c1b|24/02/2011 21:43:29|2.2|11|ItineRennes 0.2.2|Dream / HTC / dream|" });
+                "|cccf8749-35f0-4d4d-a82e-32fce50e9c1b|24/02/2011 21:43:29|34m 45s|2.2|11|ItineRennes 0.2.2|Dream / HTC / dream|" });
         data.add(new Object[] {
                 true,
-                "|cccf8749-35f0-4d4d-a82e-32fce50e9c1b|24/02/2011 12:54:51|2.3.3|13|ItineRennes 0.3.1|Modele / brand / code|" });
+                "|cccf8749-35f0-4d4d-a82e-32fce50e9c1b|24/02/2011 12:54:51|45d 0h 12m 5s|2.3.3|13|ItineRennes 0.3.1|Modele / brand / code|" });
         data.add(new Object[] { false, "" });
 
         return data;

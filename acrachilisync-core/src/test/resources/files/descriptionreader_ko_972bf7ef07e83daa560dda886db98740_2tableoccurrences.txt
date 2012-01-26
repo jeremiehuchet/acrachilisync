@@ -1,13 +1,13 @@
 %{visibility:hidden}description_version_2%
-|_. ACRA report id|_. date|_. android|_\2. app version|_. device|
-|cccf8749-35f0-4d4d-a82e-32fce50e9c1b|24/02/2011 09:23:02|1.8|22|not_set|Nexus One / google / passion|
-|cccf8749-35f0-4d4d-a82e-32fce50e9c1b|24/02/2011 21:43:29|2.2|1|ItineRennes 0.2.2|Dream / HTC / dream|
-|cccf8749-35f0-4d4d-a82e-32fce50e9c1b|24/02/2011 12:54:51|2.3.4|13|ItineRennes 0.3.1|Modele / brand / code|
+|_. ACRA report id|_. crash date|_. run for|_. android|_\2. app version|_. device|
+|cccf8749-35f0-4d4d-a82e-32fce50e9c1b|24/02/2011 09:23:02|1d 2h 4m 55s|1.8|22|not_set|Nexus One / google / passion|
+|cccf8749-35f0-4d4d-a82e-32fce50e9c1b|24/02/2011 21:43:29|2d|2.2|1|ItineRennes 0.2.2|Dream / HTC / dream|
+|cccf8749-35f0-4d4d-a82e-32fce50e9c1b|24/02/2011 12:54:51|3h 0m 5s|2.3.4|13|ItineRennes 0.3.1|Modele / brand / code|
 
-|_. ACRA report id|_. date|_. android|_\2. app version|_. device|
-|cccf8749-35f0-4d4d-a82e-32fce50e9c1b|24/02/2011 09:23:02|2.3.4|22|not_set|Nexus One / google / passion|
-|cccf8749-35f0-4d4d-a82e-32fce50e9c1b|24/02/2011 21:43:29|2.3.4|13|ItineRennes 0.3.1|Modele / brand / code|
-|cccf8749-35f0-4d4d-a82e-32fce50e9c1b|24/02/2011 12:54:51|1.6|1|ItineRennes 0.2.2|Dream / HTC / dream|
+|_. ACRA report id|_. crash date|_. run for|_. android|_\2. app version|_. device|
+|cccf8749-35f0-4d4d-a82e-32fce50e9c1b|24/02/2011 09:23:02|3d 4h 6m 45s|2.3.4|22|not_set|Nexus One / google / passion|
+|cccf8749-35f0-4d4d-a82e-32fce50e9c1b|24/02/2011 21:43:29|2s|2.3.4|13|ItineRennes 0.3.1|Modele / brand / code|
+|cccf8749-35f0-4d4d-a82e-32fce50e9c1b|24/02/2011 12:54:51|4m|1.6|1|ItineRennes 0.2.2|Dream / HTC / dream|
 
 
 *Stacktrace*
