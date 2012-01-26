@@ -12,7 +12,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses />.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>fr.dudie</groupId>
         <artifactId>dudie-parent</artifactId>
@@ -28,7 +29,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
     <description>Sync tool to import ACRA bug reports from the standard Google Doc format to a Chiliproject bug tracker instance</description>
     <url>http://kops.github.com/acrachilisync</url>
     <inceptionYear>2011</inceptionYear>
-    
+
     <licenses>
         <license>
             <name>GNU General Public License, Version 3</name>
@@ -36,7 +37,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
             <distribution>repo</distribution>
         </license>
     </licenses>
-    
+
     <developers>
         <developer>
             <id>kops</id>
@@ -49,13 +50,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
             </properties>
         </developer>
     </developers>
-    
+
     <scm>
         <url>https://github.com/kops/acrachilisync/tree/master</url>
         <connection>scm:git:git@github.com:kops/acrachilisync.git</connection>
         <developerConnection>scm:git:git@github.com:kops/acrachilisync.git</developerConnection>
     </scm>
-    
+
     <issueManagement>
         <system>Github tracker</system>
         <url>https://github.com/kops/acrachilisync/issues</url>
@@ -71,11 +72,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses />.
 
     <modules>
         <module>acrachilisync-core</module>
-	<module>acrachilisync-cli</module>
-	<module>acrachilisync-tools</module>
+        <module>acrachilisync-cli</module>
+        <module>acrachilisync-tools</module>
     </modules>
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.7</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>com.mycila.maven-license-plugin</groupId>
