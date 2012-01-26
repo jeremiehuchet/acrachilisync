@@ -170,7 +170,8 @@ public class MigrateDescriptions {
                 msg.append(pIssue.getDescription());
                 LOGGER.trace(msg.toString());
             }
-            // redmine.updateIssue(pIssue);
+            LOGGER.info("update Issue #{}", pIssue.getId());
+            redmine.updateIssue(pIssue);
         } catch (final Exception e) {
             throw new DescriptionUpgradeException(pIssue, e);
         }
