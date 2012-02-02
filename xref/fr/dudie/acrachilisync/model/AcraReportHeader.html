@@ -37,7 +37,7 @@
 <a class="jxr_linenumber" name="27" href="#27">27</a>  <em class="jxr_javadoccomment">     * A unique identifier for this report. If you receive 2 reports with the same ID then there</em>
 <a class="jxr_linenumber" name="28" href="#28">28</a>  <em class="jxr_javadoccomment">     * might be a bug in the handling of reports in ACRA...</em>
 <a class="jxr_linenumber" name="29" href="#29">29</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="30" href="#30">30</a>      REPORT_ID,
+<a class="jxr_linenumber" name="30" href="#30">30</a>      REPORT_ID(<strong class="jxr_keyword">true</strong>),
 <a class="jxr_linenumber" name="31" href="#31">31</a>  
 <a class="jxr_linenumber" name="32" href="#32">32</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="33" href="#33">33</a>  <em class="jxr_javadoccomment">     * APP_VERSION_CODE</em>
@@ -47,7 +47,7 @@
 <a class="jxr_linenumber" name="37" href="#37">37</a>  <em class="jxr_javadoccomment">     * Application version code. This is the incremental integer version code used to differentiate</em>
 <a class="jxr_linenumber" name="38" href="#38">38</a>  <em class="jxr_javadoccomment">     * versions on the android market. See PackageInfo.versionCode.</em>
 <a class="jxr_linenumber" name="39" href="#39">39</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="40" href="#40">40</a>      APP_VERSION_CODE,
+<a class="jxr_linenumber" name="40" href="#40">40</a>      APP_VERSION_CODE(false),
 <a class="jxr_linenumber" name="41" href="#41">41</a>  
 <a class="jxr_linenumber" name="42" href="#42">42</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="43" href="#43">43</a>  <em class="jxr_javadoccomment">     * APP_VERSION_NAME</em>
@@ -56,7 +56,7 @@
 <a class="jxr_linenumber" name="46" href="#46">46</a>  <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="47" href="#47">47</a>  <em class="jxr_javadoccomment">     * Application version name. See PackageInfo.versionName.</em>
 <a class="jxr_linenumber" name="48" href="#48">48</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="49" href="#49">49</a>      APP_VERSION_NAME,
+<a class="jxr_linenumber" name="49" href="#49">49</a>      APP_VERSION_NAME(false),
 <a class="jxr_linenumber" name="50" href="#50">50</a>  
 <a class="jxr_linenumber" name="51" href="#51">51</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="52" href="#52">52</a>  <em class="jxr_javadoccomment">     * PACKAGE_NAME</em>
@@ -65,7 +65,7 @@
 <a class="jxr_linenumber" name="55" href="#55">55</a>  <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="56" href="#56">56</a>  <em class="jxr_javadoccomment">     * Application package name. See Context.getPackageName().</em>
 <a class="jxr_linenumber" name="57" href="#57">57</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="58" href="#58">58</a>      PACKAGE_NAME,
+<a class="jxr_linenumber" name="58" href="#58">58</a>      PACKAGE_NAME(false),
 <a class="jxr_linenumber" name="59" href="#59">59</a>  
 <a class="jxr_linenumber" name="60" href="#60">60</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="61" href="#61">61</a>  <em class="jxr_javadoccomment">     * FILE_PATH</em>
@@ -76,7 +76,7 @@
 <a class="jxr_linenumber" name="66" href="#66">66</a>  <em class="jxr_javadoccomment">     * <a href="http://developer.android.com/reference/android/content/Context.html" target="alexandria_uri">http://developer.android.com/reference/android/content/Context.html</a>#getFilesDir()</em>
 <a class="jxr_linenumber" name="67" href="#67">67</a>  <em class="jxr_javadoccomment">     * Context.getFilesDir()].</em>
 <a class="jxr_linenumber" name="68" href="#68">68</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="69" href="#69">69</a>      FILE_PATH,
+<a class="jxr_linenumber" name="69" href="#69">69</a>      FILE_PATH(false),
 <a class="jxr_linenumber" name="70" href="#70">70</a>  
 <a class="jxr_linenumber" name="71" href="#71">71</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="72" href="#72">72</a>  <em class="jxr_javadoccomment">     * PHONE_MODEL</em>
@@ -85,7 +85,7 @@
 <a class="jxr_linenumber" name="75" href="#75">75</a>  <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="76" href="#76">76</a>  <em class="jxr_javadoccomment">     * Device model name. See Build.MODEL.</em>
 <a class="jxr_linenumber" name="77" href="#77">77</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="78" href="#78">78</a>      PHONE_MODEL,
+<a class="jxr_linenumber" name="78" href="#78">78</a>      PHONE_MODEL(false),
 <a class="jxr_linenumber" name="79" href="#79">79</a>  
 <a class="jxr_linenumber" name="80" href="#80">80</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="81" href="#81">81</a>  <em class="jxr_javadoccomment">     * BRAND</em>
@@ -94,7 +94,7 @@
 <a class="jxr_linenumber" name="84" href="#84">84</a>  <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="85" href="#85">85</a>  <em class="jxr_javadoccomment">     * Device brand (manufacturer or carrier). See Build.BRAND.</em>
 <a class="jxr_linenumber" name="86" href="#86">86</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="87" href="#87">87</a>      BRAND,
+<a class="jxr_linenumber" name="87" href="#87">87</a>      BRAND(false),
 <a class="jxr_linenumber" name="88" href="#88">88</a>  
 <a class="jxr_linenumber" name="89" href="#89">89</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="90" href="#90">90</a>  <em class="jxr_javadoccomment">     * PRODUCT</em>
@@ -103,7 +103,7 @@
 <a class="jxr_linenumber" name="93" href="#93">93</a>  <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="94" href="#94">94</a>  <em class="jxr_javadoccomment">     * Device overall product code. See Build.PRODUCT.</em>
 <a class="jxr_linenumber" name="95" href="#95">95</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="96" href="#96">96</a>      PRODUCT,
+<a class="jxr_linenumber" name="96" href="#96">96</a>      PRODUCT(false),
 <a class="jxr_linenumber" name="97" href="#97">97</a>  
 <a class="jxr_linenumber" name="98" href="#98">98</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="99" href="#99">99</a>  <em class="jxr_javadoccomment">     * ANDROID_VERSION</em>
@@ -112,7 +112,7 @@
 <a class="jxr_linenumber" name="102" href="#102">102</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="103" href="#103">103</a> <em class="jxr_javadoccomment">     * Device android version name. See Build.VERSION.RELEASE</em>
 <a class="jxr_linenumber" name="104" href="#104">104</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="105" href="#105">105</a>     ANDROID_VERSION,
+<a class="jxr_linenumber" name="105" href="#105">105</a>     ANDROID_VERSION(false),
 <a class="jxr_linenumber" name="106" href="#106">106</a> 
 <a class="jxr_linenumber" name="107" href="#107">107</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="108" href="#108">108</a> <em class="jxr_javadoccomment">     * BUILD</em>
@@ -147,7 +147,7 @@
 <a class="jxr_linenumber" name="137" href="#137">137</a> <em class="jxr_javadoccomment">     * </em>
 <a class="jxr_linenumber" name="138" href="#138">138</a> <em class="jxr_javadoccomment">     * See Build.</em>
 <a class="jxr_linenumber" name="139" href="#139">139</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="140" href="#140">140</a>     BUILD,
+<a class="jxr_linenumber" name="140" href="#140">140</a>     BUILD(false),
 <a class="jxr_linenumber" name="141" href="#141">141</a> 
 <a class="jxr_linenumber" name="142" href="#142">142</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="143" href="#143">143</a> <em class="jxr_javadoccomment">     * TOTAL_MEM_SIZE</em>
@@ -156,7 +156,7 @@
 <a class="jxr_linenumber" name="146" href="#146">146</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="147" href="#147">147</a> <em class="jxr_javadoccomment">     * Estimation of the total device memory size based on filesystem stats.</em>
 <a class="jxr_linenumber" name="148" href="#148">148</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="149" href="#149">149</a>     TOTAL_MEM_SIZE,
+<a class="jxr_linenumber" name="149" href="#149">149</a>     TOTAL_MEM_SIZE(false),
 <a class="jxr_linenumber" name="150" href="#150">150</a> 
 <a class="jxr_linenumber" name="151" href="#151">151</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="152" href="#152">152</a> <em class="jxr_javadoccomment">     * AVAILABLE_MEM_SIZE</em>
@@ -165,7 +165,7 @@
 <a class="jxr_linenumber" name="155" href="#155">155</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="156" href="#156">156</a> <em class="jxr_javadoccomment">     * Estimation of the available device memory size based on filesystem stats.</em>
 <a class="jxr_linenumber" name="157" href="#157">157</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="158" href="#158">158</a>     AVAILABLE_MEM_SIZE,
+<a class="jxr_linenumber" name="158" href="#158">158</a>     AVAILABLE_MEM_SIZE(false),
 <a class="jxr_linenumber" name="159" href="#159">159</a> 
 <a class="jxr_linenumber" name="160" href="#160">160</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="161" href="#161">161</a> <em class="jxr_javadoccomment">     * CUSTOM_DATA</em>
@@ -175,7 +175,7 @@
 <a class="jxr_linenumber" name="165" href="#165">165</a> <em class="jxr_javadoccomment">     * Contains key = value pairs defined by the application developer during the application</em>
 <a class="jxr_linenumber" name="166" href="#166">166</a> <em class="jxr_javadoccomment">     * execution.</em>
 <a class="jxr_linenumber" name="167" href="#167">167</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="168" href="#168">168</a>     CUSTOM_DATA,
+<a class="jxr_linenumber" name="168" href="#168">168</a>     CUSTOM_DATA(false),
 <a class="jxr_linenumber" name="169" href="#169">169</a> 
 <a class="jxr_linenumber" name="170" href="#170">170</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="171" href="#171">171</a> <em class="jxr_javadoccomment">     * STACK_TRACE</em>
@@ -184,10 +184,10 @@
 <a class="jxr_linenumber" name="174" href="#174">174</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="175" href="#175">175</a> <em class="jxr_javadoccomment">     * The Holy Stack Trace. Details of the exception that caused the application to crash.</em>
 <a class="jxr_linenumber" name="176" href="#176">176</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="177" href="#177">177</a>     STACK_TRACE,
+<a class="jxr_linenumber" name="177" href="#177">177</a>     STACK_TRACE(false),
 <a class="jxr_linenumber" name="178" href="#178">178</a> 
 <a class="jxr_linenumber" name="179" href="#179">179</a>     <em class="jxr_javadoccomment">/**</em><em class="jxr_javadoccomment"> The MD5 hash for the {@link #stacktrace}. */</em>
-<a class="jxr_linenumber" name="180" href="#180">180</a>     STACK_TRACE_MD5,
+<a class="jxr_linenumber" name="180" href="#180">180</a>     STACK_TRACE_MD5(false),
 <a class="jxr_linenumber" name="181" href="#181">181</a> 
 <a class="jxr_linenumber" name="182" href="#182">182</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="183" href="#183">183</a> <em class="jxr_javadoccomment">     * INITIAL_CONFIGURATION</em>
@@ -214,7 +214,7 @@
 <a class="jxr_linenumber" name="204" href="#204">204</a> <em class="jxr_javadoccomment">     *    userSetLocale=false</em>
 <a class="jxr_linenumber" name="205" href="#205">205</a> <em class="jxr_javadoccomment">     * &lt;/pre&gt;</em>
 <a class="jxr_linenumber" name="206" href="#206">206</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="207" href="#207">207</a>     INITIAL_CONFIGURATION,
+<a class="jxr_linenumber" name="207" href="#207">207</a>     INITIAL_CONFIGURATION(false),
 <a class="jxr_linenumber" name="208" href="#208">208</a> 
 <a class="jxr_linenumber" name="209" href="#209">209</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="210" href="#210">210</a> <em class="jxr_javadoccomment">     * CRASH_CONFIGURATION</em>
@@ -254,7 +254,7 @@
 <a class="jxr_linenumber" name="244" href="#244">244</a> <em class="jxr_javadoccomment">     * day 2 (which was still started but paused) and then the crash occurs. All the configuration</em>
 <a class="jxr_linenumber" name="245" href="#245">245</a> <em class="jxr_javadoccomment">     * changes that happened in between introduce a change in the seq value.</em>
 <a class="jxr_linenumber" name="246" href="#246">246</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="247" href="#247">247</a>     CRASH_CONFIGURATION,
+<a class="jxr_linenumber" name="247" href="#247">247</a>     CRASH_CONFIGURATION(false),
 <a class="jxr_linenumber" name="248" href="#248">248</a> 
 <a class="jxr_linenumber" name="249" href="#249">249</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="250" href="#250">250</a> <em class="jxr_javadoccomment">     * DISPLAY</em>
@@ -282,7 +282,7 @@
 <a class="jxr_linenumber" name="272" href="#272">272</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="273" href="#273">273</a> <em class="jxr_javadoccomment">     * Comment added by the user in the dialog displayed in NOTIFICATION mode.</em>
 <a class="jxr_linenumber" name="274" href="#274">274</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="275" href="#275">275</a>     DISPLAY,
+<a class="jxr_linenumber" name="275" href="#275">275</a>     DISPLAY(false),
 <a class="jxr_linenumber" name="276" href="#276">276</a> 
 <a class="jxr_linenumber" name="277" href="#277">277</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="278" href="#278">278</a> <em class="jxr_javadoccomment">     * USER_APP_START_DATE</em>
@@ -291,7 +291,7 @@
 <a class="jxr_linenumber" name="281" href="#281">281</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="282" href="#282">282</a> <em class="jxr_javadoccomment">     * User date on application start.</em>
 <a class="jxr_linenumber" name="283" href="#283">283</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="284" href="#284">284</a>     USER_APP_START_DATE,
+<a class="jxr_linenumber" name="284" href="#284">284</a>     USER_APP_START_DATE(<strong class="jxr_keyword">true</strong>),
 <a class="jxr_linenumber" name="285" href="#285">285</a> 
 <a class="jxr_linenumber" name="286" href="#286">286</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="287" href="#287">287</a> <em class="jxr_javadoccomment">     * USER_CRASH_DATE</em>
@@ -300,7 +300,7 @@
 <a class="jxr_linenumber" name="290" href="#290">290</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="291" href="#291">291</a> <em class="jxr_javadoccomment">     * User date immediately after the crash occurred.</em>
 <a class="jxr_linenumber" name="292" href="#292">292</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="293" href="#293">293</a>     USER_CRASH_DATE,
+<a class="jxr_linenumber" name="293" href="#293">293</a>     USER_CRASH_DATE(<strong class="jxr_keyword">true</strong>),
 <a class="jxr_linenumber" name="294" href="#294">294</a> 
 <a class="jxr_linenumber" name="295" href="#295">295</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="296" href="#296">296</a> <em class="jxr_javadoccomment">     * DUMPSYS_MEMINFO</em>
@@ -343,7 +343,7 @@
 <a class="jxr_linenumber" name="333" href="#333">333</a> <em class="jxr_javadoccomment">     * Analysis of these data require a high knowledge of internal system memory handling. You can</em>
 <a class="jxr_linenumber" name="334" href="#334">334</a> <em class="jxr_javadoccomment">     * get some clues in this StackOverflow answer from Dianne Hackborn.</em>
 <a class="jxr_linenumber" name="335" href="#335">335</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="336" href="#336">336</a>     DUMPSYS_MEMINFO,
+<a class="jxr_linenumber" name="336" href="#336">336</a>     DUMPSYS_MEMINFO(false),
 <a class="jxr_linenumber" name="337" href="#337">337</a> 
 <a class="jxr_linenumber" name="338" href="#338">338</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="339" href="#339">339</a> <em class="jxr_javadoccomment">     * DROPBOX</em>
@@ -412,7 +412,7 @@
 <a class="jxr_linenumber" name="402" href="#402">402</a> <em class="jxr_javadoccomment">     *    Nothing.</em>
 <a class="jxr_linenumber" name="403" href="#403">403</a> <em class="jxr_javadoccomment">     * &lt;/pre&gt;</em>
 <a class="jxr_linenumber" name="404" href="#404">404</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="405" href="#405">405</a>     DROPBOX,
+<a class="jxr_linenumber" name="405" href="#405">405</a>     DROPBOX(false),
 <a class="jxr_linenumber" name="406" href="#406">406</a> 
 <a class="jxr_linenumber" name="407" href="#407">407</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="408" href="#408">408</a> <em class="jxr_javadoccomment">     * LOGCAT</em>
@@ -424,7 +424,7 @@
 <a class="jxr_linenumber" name="414" href="#414">414</a> <em class="jxr_javadoccomment">     * Retrieving logcat events in your reports will allow you to retrieve your own debugging</em>
 <a class="jxr_linenumber" name="415" href="#415">415</a> <em class="jxr_javadoccomment">     * traces. See configuration details.</em>
 <a class="jxr_linenumber" name="416" href="#416">416</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="417" href="#417">417</a>     LOGCAT,
+<a class="jxr_linenumber" name="417" href="#417">417</a>     LOGCAT(false),
 <a class="jxr_linenumber" name="418" href="#418">418</a> 
 <a class="jxr_linenumber" name="419" href="#419">419</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="420" href="#420">420</a> <em class="jxr_javadoccomment">     * EVENTSLOG</em>
@@ -479,7 +479,7 @@
 <a class="jxr_linenumber" name="469" href="#469">469</a> <em class="jxr_javadoccomment">     *    03-27 16:37:48.100 I/dvm_gc_info(  559): [8314046716718417551,-9042798587623495631,-3999331673328351193,8525718]</em>
 <a class="jxr_linenumber" name="470" href="#470">470</a> <em class="jxr_javadoccomment">     * &lt;/pre&gt;</em>
 <a class="jxr_linenumber" name="471" href="#471">471</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="472" href="#472">472</a>     EVENTSLOG,
+<a class="jxr_linenumber" name="472" href="#472">472</a>     EVENTSLOG(false),
 <a class="jxr_linenumber" name="473" href="#473">473</a> 
 <a class="jxr_linenumber" name="474" href="#474">474</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="475" href="#475">475</a> <em class="jxr_javadoccomment">     * RADIOLOG</em>
@@ -534,7 +534,7 @@
 <a class="jxr_linenumber" name="524" href="#524">524</a> <em class="jxr_javadoccomment">     *    03-27 16:37:44.150 D/RILJ    (  195): [0104]&lt; SIGNAL_STRENGTH {4, 99, -1, -1, -1, -1, 0}</em>
 <a class="jxr_linenumber" name="525" href="#525">525</a> <em class="jxr_javadoccomment">     * &lt;/pre&gt;</em>
 <a class="jxr_linenumber" name="526" href="#526">526</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="527" href="#527">527</a>     RADIOLOG,
+<a class="jxr_linenumber" name="527" href="#527">527</a>     RADIOLOG(false),
 <a class="jxr_linenumber" name="528" href="#528">528</a> 
 <a class="jxr_linenumber" name="529" href="#529">529</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="530" href="#530">530</a> <em class="jxr_javadoccomment">     * IS_SILENT</em>
@@ -543,7 +543,7 @@
 <a class="jxr_linenumber" name="533" href="#533">533</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="534" href="#534">534</a> <em class="jxr_javadoccomment">     * True if the report has been explicitly sent silently by the developer.</em>
 <a class="jxr_linenumber" name="535" href="#535">535</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="536" href="#536">536</a>     IS_SILENT,
+<a class="jxr_linenumber" name="536" href="#536">536</a>     IS_SILENT(false),
 <a class="jxr_linenumber" name="537" href="#537">537</a> 
 <a class="jxr_linenumber" name="538" href="#538">538</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="539" href="#539">539</a> <em class="jxr_javadoccomment">     * DEVICE_ID</em>
@@ -555,7 +555,7 @@
 <a class="jxr_linenumber" name="545" href="#545">545</a> <em class="jxr_javadoccomment">     * the READ_PHONE_STATE permission, you should use #INSTALLATION_ID instead. See</em>
 <a class="jxr_linenumber" name="546" href="#546">546</a> <em class="jxr_javadoccomment">     * TelephonyManager.html#getDeviceId()</em>
 <a class="jxr_linenumber" name="547" href="#547">547</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="548" href="#548">548</a>     DEVICE_ID,
+<a class="jxr_linenumber" name="548" href="#548">548</a>     DEVICE_ID(false),
 <a class="jxr_linenumber" name="549" href="#549">549</a> 
 <a class="jxr_linenumber" name="550" href="#550">550</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="551" href="#551">551</a> <em class="jxr_javadoccomment">     * INSTALLATION_ID</em>
@@ -566,7 +566,7 @@
 <a class="jxr_linenumber" name="556" href="#556">556</a> <em class="jxr_javadoccomment">     * installation without using any personal data. Implemented following the guidelines from the</em>
 <a class="jxr_linenumber" name="557" href="#557">557</a> <em class="jxr_javadoccomment">     * Android Developers Blog.</em>
 <a class="jxr_linenumber" name="558" href="#558">558</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="559" href="#559">559</a>     INSTALLATION_ID,
+<a class="jxr_linenumber" name="559" href="#559">559</a>     INSTALLATION_ID(false),
 <a class="jxr_linenumber" name="560" href="#560">560</a> 
 <a class="jxr_linenumber" name="561" href="#561">561</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="562" href="#562">562</a> <em class="jxr_javadoccomment">     * USER_EMAIL</em>
@@ -576,7 +576,7 @@
 <a class="jxr_linenumber" name="566" href="#566">566</a> <em class="jxr_javadoccomment">     * User email address. Can be provided by the user in the acra.user.email SharedPreference</em>
 <a class="jxr_linenumber" name="567" href="#567">567</a> <em class="jxr_javadoccomment">     * field.</em>
 <a class="jxr_linenumber" name="568" href="#568">568</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="569" href="#569">569</a>     USER_EMAIL,
+<a class="jxr_linenumber" name="569" href="#569">569</a>     USER_EMAIL(false),
 <a class="jxr_linenumber" name="570" href="#570">570</a> 
 <a class="jxr_linenumber" name="571" href="#571">571</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="572" href="#572">572</a> <em class="jxr_javadoccomment">     * DEVICE_FEATURES</em>
@@ -612,7 +612,7 @@
 <a class="jxr_linenumber" name="602" href="#602">602</a> <em class="jxr_javadoccomment">     *    glEsVersion = 2.0</em>
 <a class="jxr_linenumber" name="603" href="#603">603</a> <em class="jxr_javadoccomment">     * &lt;/pre&gt;</em>
 <a class="jxr_linenumber" name="604" href="#604">604</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="605" href="#605">605</a>     DEVICE_FEATURES,
+<a class="jxr_linenumber" name="605" href="#605">605</a>     DEVICE_FEATURES(false),
 <a class="jxr_linenumber" name="606" href="#606">606</a> 
 <a class="jxr_linenumber" name="607" href="#607">607</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="608" href="#608">608</a> <em class="jxr_javadoccomment">     * ENVIRONMENT</em>
@@ -634,7 +634,7 @@
 <a class="jxr_linenumber" name="624" href="#624">624</a> <em class="jxr_javadoccomment">     *    isExternalStorageRemovable=true</em>
 <a class="jxr_linenumber" name="625" href="#625">625</a> <em class="jxr_javadoccomment">     * &lt;/pre&gt;</em>
 <a class="jxr_linenumber" name="626" href="#626">626</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="627" href="#627">627</a>     ENVIRONMENT,
+<a class="jxr_linenumber" name="627" href="#627">627</a>     ENVIRONMENT(false),
 <a class="jxr_linenumber" name="628" href="#628">628</a> 
 <a class="jxr_linenumber" name="629" href="#629">629</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="630" href="#630">630</a> <em class="jxr_javadoccomment">     * SHARED_PREFERENCES</em>
@@ -649,7 +649,7 @@
 <a class="jxr_linenumber" name="639" href="#639">639</a> <em class="jxr_javadoccomment">     * @ReportsCrashes(additionalSharedPreferences={"my.own.prefs","a.second.prefs" ).</em>
 <a class="jxr_linenumber" name="640" href="#640">640</a> <em class="jxr_javadoccomment">     * &lt;/pre&gt;</em>
 <a class="jxr_linenumber" name="641" href="#641">641</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="642" href="#642">642</a>     SHARED_PREFERENCES,
+<a class="jxr_linenumber" name="642" href="#642">642</a>     SHARED_PREFERENCES(false),
 <a class="jxr_linenumber" name="643" href="#643">643</a> 
 <a class="jxr_linenumber" name="644" href="#644">644</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="645" href="#645">645</a> <em class="jxr_javadoccomment">     * SETTINGS_SYSTEM</em>
@@ -711,7 +711,7 @@
 <a class="jxr_linenumber" name="701" href="#701">701</a> <em class="jxr_javadoccomment">     *    WINDOW_ANIMATION_SCALE=1.0</em>
 <a class="jxr_linenumber" name="702" href="#702">702</a> <em class="jxr_javadoccomment">     * &lt;/pre&gt;</em>
 <a class="jxr_linenumber" name="703" href="#703">703</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="704" href="#704">704</a>     SETTINGS_SYSTEM,
+<a class="jxr_linenumber" name="704" href="#704">704</a>     SETTINGS_SYSTEM(false),
 <a class="jxr_linenumber" name="705" href="#705">705</a> 
 <a class="jxr_linenumber" name="706" href="#706">706</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="707" href="#707">707</a> <em class="jxr_javadoccomment">     * SETTINGS_SECURE</em>
@@ -766,16 +766,40 @@
 <a class="jxr_linenumber" name="756" href="#756">756</a> <em class="jxr_javadoccomment">     *    WIFI_WATCHDOG_WATCH_LIST=GoogleGuest</em>
 <a class="jxr_linenumber" name="757" href="#757">757</a> <em class="jxr_javadoccomment">     * &lt;/pre&gt;</em>
 <a class="jxr_linenumber" name="758" href="#758">758</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="759" href="#759">759</a>     SETTINGS_SECURE;
+<a class="jxr_linenumber" name="759" href="#759">759</a>     SETTINGS_SECURE(false);
 <a class="jxr_linenumber" name="760" href="#760">760</a> 
-<a class="jxr_linenumber" name="761" href="#761">761</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="762" href="#762">762</a> <em class="jxr_javadoccomment">     * @return the tag name (for Google spreadsheat use)</em>
-<a class="jxr_linenumber" name="763" href="#763">763</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="764" href="#764">764</a>     <strong class="jxr_keyword">public</strong> String tagName() {
-<a class="jxr_linenumber" name="765" href="#765">765</a> 
-<a class="jxr_linenumber" name="766" href="#766">766</a>         <strong class="jxr_keyword">return</strong> name().toLowerCase().replaceAll(<span class="jxr_string">"[^a-z0-9]"</span>, <span class="jxr_string">""</span>);
-<a class="jxr_linenumber" name="767" href="#767">767</a>     }
-<a class="jxr_linenumber" name="768" href="#768">768</a> }
+<a class="jxr_linenumber" name="761" href="#761">761</a>     <em class="jxr_javadoccomment">/**</em><em class="jxr_javadoccomment"> True if the field is required to instantiate an {@link AcraReport}. */</em>
+<a class="jxr_linenumber" name="762" href="#762">762</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">boolean</strong> mandatory;
+<a class="jxr_linenumber" name="763" href="#763">763</a> 
+<a class="jxr_linenumber" name="764" href="#764">764</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="765" href="#765">765</a> <em class="jxr_javadoccomment">     * Constructor.</em>
+<a class="jxr_linenumber" name="766" href="#766">766</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="767" href="#767">767</a> <em class="jxr_javadoccomment">     * @param pMandatory</em>
+<a class="jxr_linenumber" name="768" href="#768">768</a> <em class="jxr_javadoccomment">     *            true if the field is required to instantiate an {@link AcraReport}</em>
+<a class="jxr_linenumber" name="769" href="#769">769</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="770" href="#770">770</a>     <strong class="jxr_keyword">private</strong> <a href="../../../../fr/dudie/acrachilisync/model/AcraReportHeader.html">AcraReportHeader</a>(<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">boolean</strong> pMandatory) {
+<a class="jxr_linenumber" name="771" href="#771">771</a> 
+<a class="jxr_linenumber" name="772" href="#772">772</a>         <strong class="jxr_keyword">this</strong>.mandatory = pMandatory;
+<a class="jxr_linenumber" name="773" href="#773">773</a>     }
+<a class="jxr_linenumber" name="774" href="#774">774</a> 
+<a class="jxr_linenumber" name="775" href="#775">775</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="776" href="#776">776</a> <em class="jxr_javadoccomment">     * Is the field mandatory ?</em>
+<a class="jxr_linenumber" name="777" href="#777">777</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="778" href="#778">778</a> <em class="jxr_javadoccomment">     * @return true if the field is required to instantiate an {@link AcraReport}</em>
+<a class="jxr_linenumber" name="779" href="#779">779</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="780" href="#780">780</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> isMandatory() {
+<a class="jxr_linenumber" name="781" href="#781">781</a> 
+<a class="jxr_linenumber" name="782" href="#782">782</a>         <strong class="jxr_keyword">return</strong> mandatory;
+<a class="jxr_linenumber" name="783" href="#783">783</a>     }
+<a class="jxr_linenumber" name="784" href="#784">784</a> 
+<a class="jxr_linenumber" name="785" href="#785">785</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="786" href="#786">786</a> <em class="jxr_javadoccomment">     * @return the tag name (for Google spreadsheat use)</em>
+<a class="jxr_linenumber" name="787" href="#787">787</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="788" href="#788">788</a>     <strong class="jxr_keyword">public</strong> String tagName() {
+<a class="jxr_linenumber" name="789" href="#789">789</a> 
+<a class="jxr_linenumber" name="790" href="#790">790</a>         <strong class="jxr_keyword">return</strong> name().toLowerCase().replaceAll(<span class="jxr_string">"[^a-z0-9]"</span>, <span class="jxr_string">""</span>);
+<a class="jxr_linenumber" name="791" href="#791">791</a>     }
+<a class="jxr_linenumber" name="792" href="#792">792</a> }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
 </html>

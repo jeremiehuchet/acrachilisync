@@ -6,11 +6,11 @@
     <link>http://kops.github.com/acrachilisync/acrachilisync-core</link>
     <description>acrachilisync-core - Checkstyle report</description>
     <language>en-us</language>
-    <copyright>&#169;2011</copyright>
+    <copyright>&#169;2011 - 2012</copyright>
     <item>
-      <title>File: 17,
+      <title>File: 20,
              Errors: 0,
-             Warnings: 71,
+             Warnings: 82,
              Infos: 0
       </title>
             <link>http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html</link>
@@ -43,13 +43,27 @@
               </tr>
                           <tr>
                 <td>
+                  <a href="http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html#fr.dudie.acrachilisync.utils.RunningTimeUtils.java">fr/dudie/acrachilisync/utils/RunningTimeUtils.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  9
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html#fr.dudie.acrachilisync.utils.IssueDescriptionUtils.java">fr/dudie/acrachilisync/utils/IssueDescriptionUtils.java</a>
                 </td>
                 <td>
                   0
                 </td>
                 <td>
-                  6
+                  2
                 </td>
                 <td>
                   0
@@ -63,7 +77,7 @@
                   0
                 </td>
                 <td>
-                  1
+                  0
                 </td>
                 <td>
                   0
@@ -105,7 +119,7 @@
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
                 <td>
                   0
@@ -119,7 +133,7 @@
                   0
                 </td>
                 <td>
-                  0
+                  2
                 </td>
                 <td>
                   0
@@ -197,13 +211,41 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html#fr.dudie.acrachilisync.utils.IssueDescriptionReader.java">fr/dudie/acrachilisync/utils/IssueDescriptionReader.java</a>
+                  <a href="http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html#fr.dudie.acrachilisync.exception.MalformedSpreadsheetLineException.java">fr/dudie/acrachilisync/exception/MalformedSpreadsheetLineException.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html#fr.dudie.acrachilisync.model.ErrorOccurrence.java">fr/dudie/acrachilisync/model/ErrorOccurrence.java</a>
                 </td>
                 <td>
                   0
                 </td>
                 <td>
                   1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://kops.github.com/acrachilisync/acrachilisync-core/checkstyle.html#fr.dudie.acrachilisync.utils.IssueDescriptionReader.java">fr/dudie/acrachilisync/utils/IssueDescriptionReader.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  2
                 </td>
                 <td>
                   0
@@ -231,7 +273,7 @@
                   0
                 </td>
                 <td>
-                  4
+                  3
                 </td>
                 <td>
                   0

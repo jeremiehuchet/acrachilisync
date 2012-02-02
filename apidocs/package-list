@@ -2,4 +2,6 @@ fr.dudie.acrachilisync
 fr.dudie.acrachilisync.exception
 fr.dudie.acrachilisync.handler
 fr.dudie.acrachilisync.model
+fr.dudie.acrachilisync.tools
+fr.dudie.acrachilisync.tools.upgrade
 fr.dudie.acrachilisync.utils
